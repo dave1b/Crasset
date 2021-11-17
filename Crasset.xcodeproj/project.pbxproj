@@ -1,0 +1,631 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C33A03C72744F4EB008ACD27 /* CrassetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03C62744F4EB008ACD27 /* CrassetApp.swift */; };
+		C33A03C92744F4EB008ACD27 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03C82744F4EB008ACD27 /* ContentView.swift */; };
+		C33A03CB2744F4FA008ACD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C33A03CA2744F4FA008ACD27 /* Assets.xcassets */; };
+		C33A03CE2744F4FA008ACD27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C33A03CD2744F4FA008ACD27 /* Preview Assets.xcassets */; };
+		C33A03D02744F4FA008ACD27 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03CF2744F4FA008ACD27 /* Persistence.swift */; };
+		C33A03D32744F4FA008ACD27 /* Crasset.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C33A03D12744F4FA008ACD27 /* Crasset.xcdatamodeld */; };
+		C33A03DD2744F4FB008ACD27 /* CrassetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03DC2744F4FB008ACD27 /* CrassetTests.swift */; };
+		C33A03E72744F4FB008ACD27 /* CrassetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03E62744F4FB008ACD27 /* CrassetUITests.swift */; };
+		C33A03E92744F4FB008ACD27 /* CrassetUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03E82744F4FB008ACD27 /* CrassetUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C33A03D92744F4FB008ACD27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C33A03BB2744F4EB008ACD27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C33A03C22744F4EB008ACD27;
+			remoteInfo = Crasset;
+		};
+		C33A03E32744F4FB008ACD27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C33A03BB2744F4EB008ACD27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C33A03C22744F4EB008ACD27;
+			remoteInfo = Crasset;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C33A03C32744F4EB008ACD27 /* Crasset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crasset.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C33A03C62744F4EB008ACD27 /* CrassetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrassetApp.swift; sourceTree = "<group>"; };
+		C33A03C82744F4EB008ACD27 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C33A03CA2744F4FA008ACD27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C33A03CD2744F4FA008ACD27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C33A03CF2744F4FA008ACD27 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		C33A03D22744F4FA008ACD27 /* Crasset.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Crasset.xcdatamodel; sourceTree = "<group>"; };
+		C33A03D82744F4FB008ACD27 /* CrassetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrassetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C33A03DC2744F4FB008ACD27 /* CrassetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrassetTests.swift; sourceTree = "<group>"; };
+		C33A03E22744F4FB008ACD27 /* CrassetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrassetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C33A03E62744F4FB008ACD27 /* CrassetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrassetUITests.swift; sourceTree = "<group>"; };
+		C33A03E82744F4FB008ACD27 /* CrassetUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrassetUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C33A03C02744F4EB008ACD27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C33A03D52744F4FB008ACD27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C33A03DF2744F4FB008ACD27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C33A03BA2744F4EB008ACD27 = {
+			isa = PBXGroup;
+			children = (
+				C33A03C52744F4EB008ACD27 /* Crasset */,
+				C33A03DB2744F4FB008ACD27 /* CrassetTests */,
+				C33A03E52744F4FB008ACD27 /* CrassetUITests */,
+				C33A03C42744F4EB008ACD27 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C33A03C42744F4EB008ACD27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C33A03C32744F4EB008ACD27 /* Crasset.app */,
+				C33A03D82744F4FB008ACD27 /* CrassetTests.xctest */,
+				C33A03E22744F4FB008ACD27 /* CrassetUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C33A03C52744F4EB008ACD27 /* Crasset */ = {
+			isa = PBXGroup;
+			children = (
+				C33A03C62744F4EB008ACD27 /* CrassetApp.swift */,
+				C33A03C82744F4EB008ACD27 /* ContentView.swift */,
+				C33A03CA2744F4FA008ACD27 /* Assets.xcassets */,
+				C33A03CF2744F4FA008ACD27 /* Persistence.swift */,
+				C33A03D12744F4FA008ACD27 /* Crasset.xcdatamodeld */,
+				C33A03CC2744F4FA008ACD27 /* Preview Content */,
+			);
+			path = Crasset;
+			sourceTree = "<group>";
+		};
+		C33A03CC2744F4FA008ACD27 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C33A03CD2744F4FA008ACD27 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C33A03DB2744F4FB008ACD27 /* CrassetTests */ = {
+			isa = PBXGroup;
+			children = (
+				C33A03DC2744F4FB008ACD27 /* CrassetTests.swift */,
+			);
+			path = CrassetTests;
+			sourceTree = "<group>";
+		};
+		C33A03E52744F4FB008ACD27 /* CrassetUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C33A03E62744F4FB008ACD27 /* CrassetUITests.swift */,
+				C33A03E82744F4FB008ACD27 /* CrassetUITestsLaunchTests.swift */,
+			);
+			path = CrassetUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C33A03C22744F4EB008ACD27 /* Crasset */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C33A03EC2744F4FB008ACD27 /* Build configuration list for PBXNativeTarget "Crasset" */;
+			buildPhases = (
+				C33A03BF2744F4EB008ACD27 /* Sources */,
+				C33A03C02744F4EB008ACD27 /* Frameworks */,
+				C33A03C12744F4EB008ACD27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Crasset;
+			productName = Crasset;
+			productReference = C33A03C32744F4EB008ACD27 /* Crasset.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C33A03D72744F4FB008ACD27 /* CrassetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C33A03EF2744F4FB008ACD27 /* Build configuration list for PBXNativeTarget "CrassetTests" */;
+			buildPhases = (
+				C33A03D42744F4FB008ACD27 /* Sources */,
+				C33A03D52744F4FB008ACD27 /* Frameworks */,
+				C33A03D62744F4FB008ACD27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C33A03DA2744F4FB008ACD27 /* PBXTargetDependency */,
+			);
+			name = CrassetTests;
+			productName = CrassetTests;
+			productReference = C33A03D82744F4FB008ACD27 /* CrassetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C33A03E12744F4FB008ACD27 /* CrassetUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C33A03F22744F4FB008ACD27 /* Build configuration list for PBXNativeTarget "CrassetUITests" */;
+			buildPhases = (
+				C33A03DE2744F4FB008ACD27 /* Sources */,
+				C33A03DF2744F4FB008ACD27 /* Frameworks */,
+				C33A03E02744F4FB008ACD27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C33A03E42744F4FB008ACD27 /* PBXTargetDependency */,
+			);
+			name = CrassetUITests;
+			productName = CrassetUITests;
+			productReference = C33A03E22744F4FB008ACD27 /* CrassetUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C33A03BB2744F4EB008ACD27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					C33A03C22744F4EB008ACD27 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					C33A03D72744F4FB008ACD27 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = C33A03C22744F4EB008ACD27;
+					};
+					C33A03E12744F4FB008ACD27 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = C33A03C22744F4EB008ACD27;
+					};
+				};
+			};
+			buildConfigurationList = C33A03BE2744F4EB008ACD27 /* Build configuration list for PBXProject "Crasset" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C33A03BA2744F4EB008ACD27;
+			productRefGroup = C33A03C42744F4EB008ACD27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C33A03C22744F4EB008ACD27 /* Crasset */,
+				C33A03D72744F4FB008ACD27 /* CrassetTests */,
+				C33A03E12744F4FB008ACD27 /* CrassetUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C33A03C12744F4EB008ACD27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C33A03CE2744F4FA008ACD27 /* Preview Assets.xcassets in Resources */,
+				C33A03CB2744F4FA008ACD27 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C33A03D62744F4FB008ACD27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C33A03E02744F4FB008ACD27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C33A03BF2744F4EB008ACD27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C33A03D02744F4FA008ACD27 /* Persistence.swift in Sources */,
+				C33A03D32744F4FA008ACD27 /* Crasset.xcdatamodeld in Sources */,
+				C33A03C92744F4EB008ACD27 /* ContentView.swift in Sources */,
+				C33A03C72744F4EB008ACD27 /* CrassetApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C33A03D42744F4FB008ACD27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C33A03DD2744F4FB008ACD27 /* CrassetTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C33A03DE2744F4FB008ACD27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C33A03E92744F4FB008ACD27 /* CrassetUITestsLaunchTests.swift in Sources */,
+				C33A03E72744F4FB008ACD27 /* CrassetUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C33A03DA2744F4FB008ACD27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C33A03C22744F4EB008ACD27 /* Crasset */;
+			targetProxy = C33A03D92744F4FB008ACD27 /* PBXContainerItemProxy */;
+		};
+		C33A03E42744F4FB008ACD27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C33A03C22744F4EB008ACD27 /* Crasset */;
+			targetProxy = C33A03E32744F4FB008ACD27 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C33A03EA2744F4FB008ACD27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C33A03EB2744F4FB008ACD27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C33A03ED2744F4FB008ACD27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Crasset/Preview Content\"";
+				DEVELOPMENT_TEAM = 9FBLM9P3TQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.hslu.ios.Crasset;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C33A03EE2744F4FB008ACD27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Crasset/Preview Content\"";
+				DEVELOPMENT_TEAM = 9FBLM9P3TQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.hslu.ios.Crasset;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C33A03F02744F4FB008ACD27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9FBLM9P3TQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.hslu.ios.CrassetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crasset.app/Crasset";
+			};
+			name = Debug;
+		};
+		C33A03F12744F4FB008ACD27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9FBLM9P3TQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.hslu.ios.CrassetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crasset.app/Crasset";
+			};
+			name = Release;
+		};
+		C33A03F32744F4FB008ACD27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9FBLM9P3TQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.hslu.ios.CrassetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Crasset;
+			};
+			name = Debug;
+		};
+		C33A03F42744F4FB008ACD27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9FBLM9P3TQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.hslu.ios.CrassetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Crasset;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C33A03BE2744F4EB008ACD27 /* Build configuration list for PBXProject "Crasset" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C33A03EA2744F4FB008ACD27 /* Debug */,
+				C33A03EB2744F4FB008ACD27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C33A03EC2744F4FB008ACD27 /* Build configuration list for PBXNativeTarget "Crasset" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C33A03ED2744F4FB008ACD27 /* Debug */,
+				C33A03EE2744F4FB008ACD27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C33A03EF2744F4FB008ACD27 /* Build configuration list for PBXNativeTarget "CrassetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C33A03F02744F4FB008ACD27 /* Debug */,
+				C33A03F12744F4FB008ACD27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C33A03F22744F4FB008ACD27 /* Build configuration list for PBXNativeTarget "CrassetUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C33A03F32744F4FB008ACD27 /* Debug */,
+				C33A03F42744F4FB008ACD27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C33A03D12744F4FA008ACD27 /* Crasset.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C33A03D22744F4FA008ACD27 /* Crasset.xcdatamodel */,
+			);
+			currentVersion = C33A03D22744F4FA008ACD27 /* Crasset.xcdatamodel */;
+			path = Crasset.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C33A03BB2744F4EB008ACD27 /* Project object */;
+}
