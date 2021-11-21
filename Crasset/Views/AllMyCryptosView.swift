@@ -1,20 +1,20 @@
 //
-//  SettingsView.swift
+//  AllMyCryptosView.swift
 //  Crasset
 //
-//  Created by daniele Muheim on 18.11.21.
+//  Created by daniele Muheim on 20.11.21.
 //
 
 import SwiftUI
 
-struct SettingsView: View {
+struct AllMyCryptosView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
+struct AllMyCryptosView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        AllMyCryptosView()
     }
 }
