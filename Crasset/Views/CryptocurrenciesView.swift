@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CryptocurrenciesView: View {
     @State private var avatarImage = UIImage(named: "Bitcoin")!
+    @State private var cryptoArray: [Crypto] = [Crypto]()
+    @State private var zahl = 5
+    
     
     var body: some View {
         NavigationView {
@@ -22,6 +25,9 @@ struct CryptocurrenciesView: View {
                 VStack(alignment: .leading) {
                     Group {
                         HStack {
+                            Text("\(zahl)")
+
+                            //Text("\(cryptoArray[0].id ?? "did not work")")
                             Text("Bitcoin (BTC)")
                             Spacer()
                             Text("$60.383,7")
@@ -30,6 +36,7 @@ struct CryptocurrenciesView: View {
                     .font(.system(size: 13, weight: .bold, design: .default))
                     .foregroundColor(.white)
                     .padding(.all, 15)
+                    
                     HStack {
                         Spacer()
                         Text("-8,36%")                    .font(.system(size: 13, weight: .bold, design: .default))
@@ -48,6 +55,17 @@ struct CryptocurrenciesView: View {
             
    
         }
+        .task{
+            zahl = 10
+            print("hello world")
+        }
+        .task{
+            APICaller.getAllCryptos(currencyID: "usd"){ cryptos in
+                cryptoArray = cryptos
+            print("hello world")
+            }
+        }
+        
     }
 }
 
