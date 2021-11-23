@@ -9,6 +9,7 @@ import Foundation
 
 struct Crypto: Codable {
     let id: String?
+    let name: String?
     let symbol: String?
     let image: String?
     let current_price: Float?
@@ -16,8 +17,6 @@ struct Crypto: Codable {
     let market_cap_rank: Int?
     let total_volume: Float?
     let price_change_percentage_24h: Float?
-    
-    
     
     /*
     {

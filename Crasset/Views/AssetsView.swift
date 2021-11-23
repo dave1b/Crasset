@@ -13,7 +13,6 @@ struct AssetsView: View {
             NavigationView {
                 AssetsChart() .navigationTitle("Assets")
             }
-            
         }
     }
 }
