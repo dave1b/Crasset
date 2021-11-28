@@ -16,8 +16,8 @@ struct CryptoCard: View {
     var price_change_percentage_24h: Float
     
     var body: some View {
-        NavigationLink(destination: CryptoDetailView(id: id)) {
-            VStack(spacing: 0) {
+        NavigationLink(destination: CryptoDetailView(cryptoId: id)) {
+            VStack() {
                 HStack {
                     AsyncImage(url: URL(string: image)){ image in
                         image.resizable()
@@ -52,7 +52,8 @@ struct CryptoCard: View {
                 .frame(height: 100.0)
                 .background(Color("ColorSet"))
                 .cornerRadius(20)
-                .padding(.all, 10)
+                .padding([.leading, .trailing], 10.0)
+                .padding([.top, .bottom], 0)
             }
         }
     }
@@ -60,5 +61,6 @@ struct CryptoCard: View {
 struct CryptoCard_Previews: PreviewProvider {
     static var previews: some View {
         CryptoCard(id: ("bitcoin"), name:("bitcoin"),symbol: ("btc") ,image: ("bitcoin"), current_price: 60000, price_change_percentage_24h: 7.5)
+            .padding()
     }
 }

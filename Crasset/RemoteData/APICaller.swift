@@ -13,8 +13,8 @@ import SwiftUI
     @Published var cryptos = [Crypto]()
     @Published var crypto: Crypto? = nil
     
-    func getSingleDetailsCrypto(cryptoID: String, currencyID: String, completionHandler: @escaping (Crypto) -> Void) async {
-        let url = URL(string: "\(APICaller.apiURL)coins/markets?vs_currency=\(currencyID)&ids=\(cryptoID)")!
+    func getSingleDetailsCrypto(cryptoID: String, currencyID: String, completionHandler: @escaping ([Crypto]) -> Void)  {
+        let url = URL(string: "\(APICaller.apiURL)coins/markets?vs_currency=\(currencyID)&ids=\(cryptoID)&order=market_cap_desc&per_page=100&page=1&sparkline=false")!
         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
             if let error = error {
                 print("Error with fetching crypo: \(error)")
@@ -26,7 +26,7 @@ import SwiftUI
                       return
                   }
             if let data = data,
-                let crypto = try? JSONDecoder().decode(Crypto.self, from: data) {
+                let crypto = try? JSONDecoder().decode([Crypto].self, from: data) {
                 print(crypto)
                 completionHandler(crypto)
             }
