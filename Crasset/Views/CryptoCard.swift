@@ -14,9 +14,12 @@ struct CryptoCard: View {
     var image: String
     var current_price: Float
     var price_change_percentage_24h: Float
+    var marketCap: Float
+    var marketCapRank: Int
+    var ath: Float
     
     var body: some View {
-        NavigationLink(destination: CryptoDetailView(cryptoId: id)) {
+        NavigationLink(destination: CryptoDetailView(cryptoId: id, cryptoSymbol: symbol,cryptoImage: image, cryptoCurrentPrice: current_price, cryptoPriceChange: price_change_percentage_24h, cryptoMarketCap: marketCap, cryptoMarketCapRank: marketCapRank, ath: ath)) {
             VStack() {
                 HStack {
                     AsyncImage(url: URL(string: image)){ image in
@@ -60,7 +63,7 @@ struct CryptoCard: View {
 }
 struct CryptoCard_Previews: PreviewProvider {
     static var previews: some View {
-        CryptoCard(id: ("bitcoin"), name:("bitcoin"),symbol: ("btc") ,image: ("bitcoin"), current_price: 60000, price_change_percentage_24h: 7.5)
+        CryptoCard(id: ("bitcoin"), name:("bitcoin"),symbol: ("btc") ,image: ("bitcoin"), current_price: 60000, price_change_percentage_24h: 7.5, marketCap: 2234234, marketCapRank: 1, ath: 12323.2)
             .padding()
     }
 }

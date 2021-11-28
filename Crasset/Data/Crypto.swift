@@ -17,7 +17,11 @@ struct Crypto: Codable {
     let market_cap_rank: Int?
     let total_volume: Float?
     let price_change_percentage_24h: Float?
-    
+    let ath: Float?
+    let homepage: [String]?
+    let usd: [Float?]
+    let eur: Float?
+    let chf: Float?
     /*
     {
        "id": "ethereum",
