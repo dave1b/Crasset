@@ -9,26 +9,25 @@ import Foundation
 import SwiftUI
 
 struct CurrencyPicker: View{
+    var parentView: CalculatorView
     let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
-    @Binding var pickedCurrency: String
-    var currencies = ["USD","CHF","EURI","bitcoin", "ethereum", "binancecoin","solana","cardano","ripple","polkadot","dogecoin","shiba-inu","chainlink","matic-network","matic-network","uniswap","stellar","illuvium","filecoin","helium","decentraland","monero","iota"]
+    @Binding var pickedCurrency: String {
+        didSet {
+            parentView.amount1Changed()
+        }
+    }
+    var currencies = ["USD","CHF","EUR","Bitcoin", "Ethereum", "Binancecoin","Solana","Cardano","Ripple","Polkadot","Dogecoin","Shiba-Inu","Chainlink","Matic-network","Uniswap","Stellar","Illuvium","Filecoin","Helium","Decentraland","Monero","Iota"]
     
-    
-
     var body: some View{
         Picker("Currency", selection: $pickedCurrency) {
             ForEach(currencies, id: \.self) {
                 Text("\($0)")
-                }
+            }
         }
         .frame(width: 100.0, height: 25.0, alignment: .center)
         .padding()
-            .background(lightGreyColor)
-            .cornerRadius(5.0)
-            .padding()
-        
-        
+        .background(lightGreyColor)
+        .cornerRadius(5.0)
+        .padding()
     }
 }
-
-
