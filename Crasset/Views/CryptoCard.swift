@@ -34,7 +34,7 @@ struct CryptoCard: View {
                         HStack {
                             Text(name)
                                 .font(.headline)
-
+                            
                             Text(symbol)
                             Spacer()
                             let currentPrice = String(format: "%.2f", current_price)
@@ -44,7 +44,7 @@ struct CryptoCard: View {
                     .font(.system(size: 11, weight: .bold, design: .default))
                     .foregroundColor(.white)
                     HStack {
-
+                        
                         Text(String(format: "%.2f", price_change_percentage_24h) + "%")
                             .font(.system(size: 13, weight: .bold, design: .default))
                             .foregroundColor(price_change_percentage_24h < 0 ? .red : .green)
