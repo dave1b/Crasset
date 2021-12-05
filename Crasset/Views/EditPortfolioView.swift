@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditPortfolioView: View {
-    @State var selectedCoin: String = ""
+    @State var selectedCoin: String = "Bitcoin"
     @State private var coinData: CryptoFiat?
     @State private var quantityText: String = ""
     @Binding var showSheetView: Bool
@@ -23,30 +23,31 @@ struct EditPortfolioView: View {
                     CurrencyPicker(pickedCurrency: $selectedCoin)
                         .frame(width: 100.0, height: 25.0, alignment: .center)
                         .padding(.all, 20)
-   
+                        .onChange(of: selectedCoin, perform: { value in
+                            if value == selectedCoin {
+                                amount1Changed()
+                                quantityText = String(format: "%.2f", service.getAmountOfCoin(coin: value))
+                            }
+                        })
                     HStack {
                         Text("Current price of \(selectedCoin):")
                         Spacer()
                         Text(String(format: "%.2f", coinData?.USD ?? 0.0))
                     }
-                    .onChange(of: selectedCoin, perform: { value in
-                        if value == selectedCoin {
-                            amount1Changed()
-                        }
-                    })
+                   
                     
                     Divider()
                     HStack {
                         Text("Amount holding:" )
                         Spacer()
-                        TextField("Ex: 1.4", text: $quantityText)
+                        TextField("", text: $quantityText)
                             .multilineTextAlignment(.trailing)
                             .keyboardType(.decimalPad)
                     }
 
                     Divider()
                     HStack {
-                        Text("Current value:")
+                        Text("Holding in USD")
                         Spacer()
                         Text(totalValue)
                     }
@@ -74,6 +75,9 @@ struct EditPortfolioView: View {
                     amount1Changed()
                 }
             }
+        } .task {
+            amount1Changed()
+            quantityText = String(format: "%.2f", service.getAmountOfCoin(coin: selectedCoin))
         }
     }
     
@@ -87,7 +91,6 @@ struct EditPortfolioView: View {
     }
     
     func saveButtonPressed() {
-        self.charDataObj.add()
         service.updatePortfolio(coin: selectedCoin, amount: Float(quantityText)!)
     }
 }
