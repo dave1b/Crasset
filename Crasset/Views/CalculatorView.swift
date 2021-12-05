@@ -10,8 +10,8 @@ import SwiftUI
 struct CalculatorView: View {
     @State var cryptoFiat1: CryptoFiat?
     @State var cryptoFiat2: CryptoFiat?
-    @State private var amount1: String = ""
-    @State private var amount2: String = ""
+    @State private var amount1: String = "0.0"
+    @State private var amount2: String = "0.0"
     @State private var pickedCurrency1 = "USD"
     @State private var pickedCurrency2 = "USD"
     
@@ -39,6 +39,9 @@ struct CalculatorView: View {
                         .padding()
                     CurrencyPicker(pickedCurrency: $pickedCurrency1)
                         .frame(width: 100.0, height: 25.0, alignment: .center)
+                        .onChange(of: pickedCurrency1, perform: { value in
+                                picker1Changed()
+                        })
                 }
                 
                 Spacer()
@@ -59,6 +62,11 @@ struct CalculatorView: View {
                         .padding()
                     CurrencyPicker(pickedCurrency: $pickedCurrency2)
                         .frame(width: 100.0, height: 25.0, alignment: .center)
+                        .onChange(of: pickedCurrency2, perform: { value in
+                            if value == pickedCurrency2 {
+                                picker2Changed()
+                            }
+                        })
                 }
                 
                 Spacer()
@@ -66,30 +74,40 @@ struct CalculatorView: View {
             }.task {
                 APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1)){ (response) in
                     cryptoFiat1 = response
-                    //print(cryptoFiat1)
                 }
                 APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2)){ (response) in
-                    self.cryptoFiat2 = response
-                }
+                    cryptoFiat2 = response
+            }
             }
             .navigationTitle("Crypto Calculator")
         }
     }
     
-    func amount1Changed() {
+    func picker1Changed() {
         APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1)){ (response) in
-            self.cryptoFiat1 = response
+            cryptoFiat1 = response
+            amount1Changed()
         }
+    }
+    
+    func picker2Changed(){
         APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2)){ (response) in
-            self.cryptoFiat2 = response
+            cryptoFiat2 = response
+            amount2Changed()
         }
-        let amount1AsFloat: Float = (Float(amount1) ?? 0.0)
-        amount2 = String(format: "%.2f", amount1AsFloat * (cryptoFiat1?.USD ?? 0.0) / (cryptoFiat2?.USD ?? 0.0))
-        print(amount2)
+    }
+    
+    
+    func amount1Changed() {
+            let amount1AsFloat: Float = (Float(amount1) ?? 0.0)
+            amount2 = String(format: "%.2f", amount1AsFloat * (cryptoFiat1?.USD ?? 0.0) / (cryptoFiat2?.USD ?? 0.0))
+            print(amount2)
     }
     func amount2Changed() {
-        // unimplemented
-    }
+            let amount2AsFloat: Float = (Float(amount2) ?? 0.0)
+            amount1 = String(format: "%.2f", amount2AsFloat * (cryptoFiat2?.USD ?? 0.0) / (cryptoFiat1?.USD ?? 0.0))
+            print(amount1)
+        }
 }
 
 struct CalculatorView_Previews: PreviewProvider {
