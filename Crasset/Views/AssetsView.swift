@@ -9,11 +9,12 @@ import SwiftUI
 
 struct AssetsView: View {
     @State private var showingSheet = false
-    @State private var cryptos: [Portfolio] = []
+    @State private var cryptos: [Asset] = []
     @State var indexOfTappedSlice = -1
     @State var selection: Int? = nil
     
     @EnvironmentObject var service: CoinCoreDataService
+    static let shared = CoinCoreDataService()
     @ObservedObject var charDataObj = ChartDataContainer()
 
     var body: some View {
@@ -38,12 +39,9 @@ struct AssetsView: View {
                 }
                 .frame(width: 200, height: 250)
                 .padding(.vertical)
-                .onAppear() {
-                    self.charDataObj.calc()
-                }
                 VStack{
                     List(service.portfolio){ crypto in
-                        Text(crypto.coinID ?? "SADAD")
+                        Text(crypto.coinID ?? "")
                         Text(String(format: "%.2f",  crypto.amount))
                     }
                     
@@ -66,8 +64,9 @@ struct AssetsView: View {
         }
         
     }
+    
 }
-
+    
 struct AssetsView_Previews: PreviewProvider {
     static var previews: some View {
         AssetsView()

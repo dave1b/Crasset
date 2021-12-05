@@ -12,8 +12,8 @@ class CoinCoreDataService : ObservableObject {
     
     private let container: NSPersistentContainer
     private let containerName: String = "Crasset"
-    private let entityName: String = "Portfolio"
-    @Published var portfolio: [Portfolio] = []
+    private let entityName: String = "Asset"
+    @Published var portfolio: [Asset] = []
     
     init() {
         container = NSPersistentContainer(name: containerName)
@@ -23,7 +23,7 @@ class CoinCoreDataService : ObservableObject {
             }
         }
         self.getPortfolio()
-
+        
     }
     
     func updatePortfolio(coin: String, amount: Float) {
@@ -37,9 +37,20 @@ class CoinCoreDataService : ObservableObject {
             add(coin: coin, amount: amount)
         }
     }
-        
+    
+    func getAmountOfCoin(coin: String) -> Float {
+        var amount: Float = 0.0
+        if let entity = portfolio.first(where: { $0.coinID == coin }) {
+            if entity.amount > 0 {
+                amount = entity.amount
+            }
+            return amount
+        }
+        return amount
+    }
+    
     private func getPortfolio() {
-        let request = NSFetchRequest<Portfolio>(entityName: "Portfolio")
+        let request = NSFetchRequest<Asset>(entityName: entityName)
         do {
             portfolio = try container.viewContext.fetch(request)
         } catch let error {
@@ -48,18 +59,18 @@ class CoinCoreDataService : ObservableObject {
     }
     
     private func add(coin: String, amount: Float) {
-        let entity = Portfolio(context: container.viewContext)
+        let entity = Asset(context: container.viewContext)
         entity.coinID = coin
         entity.amount = amount
         applyChanges()
     }
     
-    private func update(entity: Portfolio, amount: Float) {
+    private func update(entity: Asset, amount: Float) {
         entity.amount = amount
         applyChanges()
     }
     
-    private func delete(entity: Portfolio) {
+    private func delete(entity: Asset) {
         container.viewContext.delete(entity)
         applyChanges()
     }

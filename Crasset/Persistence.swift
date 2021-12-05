@@ -14,7 +14,7 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            let newCrypto = Portfolio(context: viewContext)
+            let newCrypto = Asset(context: viewContext)
             newCrypto.coinID = String()
         }
         do {

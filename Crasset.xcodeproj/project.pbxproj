@@ -337,8 +337,6 @@
 			);
 			mainGroup = C33A03BA2744F4EB008ACD27;
 			packageReferences = (
-				242C2E9E275B772A00886F1F /* XCRemoteSwiftPackageReference "SwiftPieChart" */,
-				241BAD2E275B7B9C00998C80 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = C33A03C42744F4EB008ACD27 /* Products */;
 			projectDirPath = "";
@@ -751,25 +749,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		241BAD2E275B7B9C00998C80 /* XCRemoteSwiftPackageReference "ChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		242C2E9E275B772A00886F1F /* XCRemoteSwiftPackageReference "SwiftPieChart" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ilamanov/SwiftPieChart";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		C33A03D12744F4FA008ACD27 /* Crasset.xcdatamodeld */ = {

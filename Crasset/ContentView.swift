@@ -17,7 +17,7 @@ struct ContentView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = Portfolio(context: viewContext)
+            let newItem = Asset(context: viewContext)
             newItem.coinID = String()
 
             do {
