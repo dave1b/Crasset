@@ -33,9 +33,6 @@ struct AssetsChart: View {
             }
             .frame(width: 200, height: 250)
             .padding(.vertical)
-            .onAppear() {
-                self.charDataObj.calc()
-            }
             
         }
     }
