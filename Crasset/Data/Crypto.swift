@@ -18,6 +18,7 @@ struct Crypto: Decodable  {
     let total_volume: Float?
     let price_change_percentage_24h: Float?
     let ath: Float?
+    let amount: Float?
     
 }
 /*

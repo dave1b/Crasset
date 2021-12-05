@@ -16,6 +16,7 @@ struct AssetsChart: View {
         VStack {
             ZStack {
                 ForEach(0..<charDataObj.chartData.count) { index in
+
                     Circle()
                         .trim(from: index == 0 ? 0.0 : charDataObj.chartData[index-1].value/100,
                               to: charDataObj.chartData[index].value/100)
@@ -26,7 +27,7 @@ struct AssetsChart: View {
                         .scaleEffect(index == indexOfTappedSlice ? 1.1 : 1.0)
                 }
                 if indexOfTappedSlice != -1 {
-                    Text(String(format: "%.2f", Double(charDataObj.chartData[indexOfTappedSlice].percent))+"%")
+                    Text(String(format: "%.2f", Double(charDataObj.chartData[indexOfTappedSlice].value))+"%")
                         .font(.title)
                 }
             }
@@ -35,25 +36,7 @@ struct AssetsChart: View {
             .onAppear() {
                 self.charDataObj.calc()
             }
-            HStack{
-                Text("Cryptos")
-                    .padding(.trailing)
-                    .font(.system(size: 20))
-                    .foregroundColor(.blue)
-                NavigationLink(destination: AllMyCryptosView(), tag: 1, selection: $selection) {
-                    Button {
-                        self.selection = 1
-
-                    } label: {
-                        Text("Show all my Cryptos")
-                            .padding()
-                            .font(.system(size: 14))
-                            .foregroundColor(.white)
-                            .background(Color("ColorSet"))
-                    }.cornerRadius(20)
-                        .padding(.leading)
-                }
-            }
+            
         }
     }
 }

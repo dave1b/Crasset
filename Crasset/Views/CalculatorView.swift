@@ -37,7 +37,7 @@ struct CalculatorView: View {
                         .background(lightGreyColor)
                         .cornerRadius(5.0)
                         .padding()
-                    CurrencyPicker(parentView:  self , pickedCurrency: $pickedCurrency1)
+                    CurrencyPicker(pickedCurrency: $pickedCurrency1)
                         .frame(width: 100.0, height: 25.0, alignment: .center)
                 }
                 
@@ -57,7 +57,7 @@ struct CalculatorView: View {
                         .background(lightGreyColor)
                         .cornerRadius(5.0)
                         .padding()
-                    CurrencyPicker(parentView:  self ,pickedCurrency: $pickedCurrency2)
+                    CurrencyPicker(pickedCurrency: $pickedCurrency2)
                         .frame(width: 100.0, height: 25.0, alignment: .center)
                 }
                 

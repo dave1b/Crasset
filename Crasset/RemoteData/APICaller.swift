@@ -15,8 +15,6 @@ class APICaller: ObservableObject {
     @Published var crypto: Crypto? = nil
     @Published var cryptoFiat: CryptoFiat? = nil
     
-    
-    
     func getSingleDetailsCrypto(cryptoID: String, completionHandler: @escaping (CryptoFiat) -> Void) {
         let url = URL(string: "\(APICaller.apiURL2)\(cryptoID)&tsyms=USD,CHF,EUR")!
         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in

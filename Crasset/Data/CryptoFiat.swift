@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CryptoFiat: Decodable  {
+struct CryptoFiat: Decodable {
     let USD: Float?
     let EUR: Float?
     let CHF: Float?

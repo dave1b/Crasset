@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct CrassetApp: App {
     let persistenceController = PersistenceController.shared
-
+    let coinCoreDatService = CoinCoreDataService()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(coinCoreDatService)
         }
     }
 }

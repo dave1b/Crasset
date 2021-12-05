@@ -20,6 +20,7 @@ struct CryptoCard: View {
     
     var body: some View {
         NavigationLink(destination: CryptoDetailView(cryptoId: id, cryptoSymbol: symbol,cryptoImage: image, cryptoCurrentPrice: current_price, cryptoPriceChange: price_change_percentage_24h, cryptoMarketCap: marketCap, cryptoMarketCapRank: marketCapRank, ath: ath)) {
+            
             VStack() {
                 HStack {
                     AsyncImage(url: URL(string: image)){ image in
