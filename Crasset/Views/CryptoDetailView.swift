@@ -70,17 +70,19 @@ struct CryptoDetailView: View {
                     Spacer()
                         .frame(height: 50)
                 }
-                .font(.system(size: 24, weight: .bold, design: .default))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 30.0)
-                .background(Color("ColorSet"))
-                .cornerRadius(20)
-                .padding([.leading, .trailing], 10.0)
-                //.padding([.top, .bottom], 0)
+               
                 
                 Spacer()
-            }.navigationTitle("\(capitalised) (\(cryptoSymbol))")
+            }
+            .font(.system(size: 24, weight: .bold, design: .default))
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 30.0)
+            .background(Color("ColorSet"))
+            .cornerRadius(20)
+            .padding([.leading, .trailing], 10.0)
+            //.padding([.top, .bottom], 0)
+            .navigationTitle("\(capitalised) (\(cryptoSymbol))")
         }
     }
 }
