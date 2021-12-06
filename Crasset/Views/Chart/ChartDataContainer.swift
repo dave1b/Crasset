@@ -19,7 +19,11 @@ class ChartDataContainer : ObservableObject {
     var index = 0
 
     
-    func calculatePercentages()async{
+    
+    init(){
+            calculatePercentages()
+        }
+    func calculatePercentages(){
 
         for crypto in service.portfolio {
             APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: crypto.coinID ?? "")){ (response) in
@@ -32,6 +36,7 @@ class ChartDataContainer : ObservableObject {
             }
         }
         chartData.removeAll()
+        Thread.sleep(forTimeInterval: 0.5)
         for asset in self.service.portfolio {
             APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: asset.coinID ?? "")){ [self] (response) in
                 DispatchQueue.main.async{
