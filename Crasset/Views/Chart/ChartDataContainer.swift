@@ -16,14 +16,10 @@ class ChartDataContainer : ObservableObject {
     let emptyColor = Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     @ObservedObject var service = AssetsView.shared
     @Published var chartData : [ChartData] = [ChartData(color: Color(#colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)), percent: 10, value: 10)]
+    var index = 0
+
     
-    init(){
-        calculatePercentages()
-    }
-    
-    func calculatePercentages(){
-        var index = 0
-        var value : CGFloat = 0
+    func calculatePercentages()async{
 
         for crypto in service.portfolio {
             APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: crypto.coinID ?? "")){ (response) in
@@ -36,7 +32,6 @@ class ChartDataContainer : ObservableObject {
             }
         }
         chartData.removeAll()
-        Thread.sleep(forTimeInterval: 2)
         for asset in self.service.portfolio {
             APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: asset.coinID ?? "")){ [self] (response) in
                 DispatchQueue.main.async{

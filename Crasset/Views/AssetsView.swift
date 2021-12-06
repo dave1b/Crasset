@@ -60,6 +60,8 @@ struct AssetsView: View {
                 }
                 
             }
+        }.task{
+            await charDataObj.calculatePercentages()
         }
         
     }
