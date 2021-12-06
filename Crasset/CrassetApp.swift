@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct CrassetApp: App {
     let persistenceController = PersistenceController.shared
-    let coinCoreDatService = CoinCoreDataService()
+    @StateObject var coinCoreDatService = CoinCoreDataService()
     
     var body: some Scene {
         WindowGroup {

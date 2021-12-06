@@ -15,14 +15,13 @@ struct AssetsView: View {
     
     @EnvironmentObject var service: CoinCoreDataService
     static let shared = CoinCoreDataService()
-    @ObservedObject var charDataObj = ChartDataContainer()
+    @StateObject var charDataObj = ChartDataContainer()
 
     var body: some View {
         NavigationView {
             VStack {
                 ZStack {
-                    ForEach(0..<charDataObj.chartData.count) { index in
-
+                    ForEach(0..<charDataObj.chartData.count, id: \.self) { index in
                         Circle()
                             .trim(from: index == 0 ? 0.0 : charDataObj.chartData[index-1].value/100,
                                   to: charDataObj.chartData[index].value/100)

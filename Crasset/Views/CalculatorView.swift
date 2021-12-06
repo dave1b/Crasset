@@ -40,7 +40,7 @@ struct CalculatorView: View {
                     CurrencyPicker(pickedCurrency: $pickedCurrency1)
                         .frame(width: 100.0, height: 25.0, alignment: .center)
                         .onChange(of: pickedCurrency1, perform: { value in
-                                picker1Changed()
+                            picker1Changed()
                         })
                 }
                 
@@ -77,7 +77,7 @@ struct CalculatorView: View {
                 }
                 APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2)){ (response) in
                     cryptoFiat2 = response
-            }
+                }
             }
             .navigationTitle("Crypto Calculator")
         }
@@ -99,15 +99,16 @@ struct CalculatorView: View {
     
     
     func amount1Changed() {
-            let amount1AsFloat: Float = (Float(amount1) ?? 0.0)
-            amount2 = String(format: "%.2f", amount1AsFloat * (cryptoFiat1?.USD ?? 0.0) / (cryptoFiat2?.USD ?? 0.0))
-            print(amount2)
+        let amount1AsFloat: Float = (Float(amount1) ?? 0.0)
+        amount2 = String(format: "%.2f", amount1AsFloat * (cryptoFiat1?.USD ?? 0.0) / (cryptoFiat2?.USD ?? 0.0))
+        print(amount2)
     }
+    
     func amount2Changed() {
-            let amount2AsFloat: Float = (Float(amount2) ?? 0.0)
-            amount1 = String(format: "%.2f", amount2AsFloat * (cryptoFiat2?.USD ?? 0.0) / (cryptoFiat1?.USD ?? 0.0))
-            print(amount1)
-        }
+        let amount2AsFloat: Float = (Float(amount2) ?? 0.0)
+        amount1 = String(format: "%.2f", amount2AsFloat * (cryptoFiat2?.USD ?? 0.0) / (cryptoFiat1?.USD ?? 0.0))
+        print(amount1)
+    }
 }
 
 struct CalculatorView_Previews: PreviewProvider {
