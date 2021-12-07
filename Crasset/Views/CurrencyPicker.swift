@@ -19,8 +19,8 @@ struct CurrencyPicker: View{
             ForEach(currencies, id: \.self) {
                 Text("\($0)")
             }
-        }
-        .frame(width: 100.0, height: 25.0, alignment: .center)
+        }.pickerStyle(WheelPickerStyle())
+        .frame(width: 150.0, height: 75.0, alignment: .center)
         .padding()
         .background(lightGreyColor)
         .cornerRadius(5.0)
