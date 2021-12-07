@@ -81,7 +81,6 @@ struct CryptoDetailView: View {
             .background(Color("ColorSet"))
             .cornerRadius(20)
             .padding([.leading, .trailing], 10.0)
-            //.padding([.top, .bottom], 0)
             .navigationTitle("\(capitalised) (\(cryptoSymbol))")
         }
     }

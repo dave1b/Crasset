@@ -14,7 +14,6 @@ struct EditPortfolioView: View {
     @Binding var showSheetView: Bool
     @State private var totalValue: String = ""
     @EnvironmentObject var service: CoinCoreDataService
-    @ObservedObject var charDataObj = ChartDataContainer()
 
     var body: some View {
         NavigationView {
@@ -34,8 +33,7 @@ struct EditPortfolioView: View {
                         Spacer()
                         Text(String(format: "%.2f", coinData?.USD ?? 0.0))
                     }
-                   
-                    
+
                     Divider()
                     HStack {
                         Text("Amount holding:" )
