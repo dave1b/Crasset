@@ -14,6 +14,8 @@ struct CalculatorView: View {
     @State private var amount2: String = "0.0"
     @State private var pickedCurrency1 = "USD"
     @State private var pickedCurrency2 = "USD"
+    @State private var flag = false
+
     
     let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     
@@ -72,10 +74,10 @@ struct CalculatorView: View {
                 Spacer()
                 
             }.task {
-                APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1)){ (response) in
+                APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1)){ (response) in
                     cryptoFiat1 = response
                 }
-                APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2)){ (response) in
+                APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2)){ (response) in
                     cryptoFiat2 = response
                 }
             }
@@ -84,14 +86,14 @@ struct CalculatorView: View {
     }
     
     func picker1Changed() {
-        APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1)){ (response) in
+        APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1)){ (response) in
             cryptoFiat1 = response
             amount1Changed()
         }
     }
     
     func picker2Changed(){
-        APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2)){ (response) in
+        APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2)){ (response) in
             cryptoFiat2 = response
             amount2Changed()
         }
@@ -99,15 +101,23 @@ struct CalculatorView: View {
     
     
     func amount1Changed() {
+        if(flag == false){
+        flag = true
         let amount1AsFloat: Float = (Float(amount1) ?? 0.0)
         amount2 = String(format: "%.2f", amount1AsFloat * (cryptoFiat1?.USD ?? 0.0) / (cryptoFiat2?.USD ?? 0.0))
         print(amount2)
+        flag = false
+        }
     }
     
     func amount2Changed() {
+        if(flag == false){
+        flag = true
         let amount2AsFloat: Float = (Float(amount2) ?? 0.0)
         amount1 = String(format: "%.2f", amount2AsFloat * (cryptoFiat2?.USD ?? 0.0) / (cryptoFiat1?.USD ?? 0.0))
         print(amount1)
+        flag = false
+        }
     }
 }
 
