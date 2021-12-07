@@ -24,11 +24,7 @@ struct tabView: View {
                 .tabItem({
                     Label("Calculator", systemImage: "square.grid.3x3.bottomright.filled")
                 })
-            
-            SettingsView()
-                .tabItem({
-                    Label("Settings",  systemImage: "info.circle.fill")
-                })
+          
         }
     }
 }
