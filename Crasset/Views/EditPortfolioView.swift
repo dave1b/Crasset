@@ -19,6 +19,7 @@ struct EditPortfolioView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
+                    Spacer()
                     CurrencyPicker(pickedCurrency: $selectedCoin)
                         .frame(width: 100.0, height: 25.0, alignment: .center)
                         .padding(.all, 20)
@@ -28,6 +29,7 @@ struct EditPortfolioView: View {
                                 quantityText = String(format: "%.2f", service.getAmountOfCoin(coin: value))
                             }
                         })
+                    Spacer()
                     HStack {
                         Text("Current price of \(selectedCoin):")
                         Spacer()
@@ -80,7 +82,7 @@ struct EditPortfolioView: View {
     }
     
     func amount1Changed() {
-        APICaller().getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: selectedCoin)){ (response) in
+        APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: selectedCoin)){ (response) in
             coinData = response
             let amount1AsFloat: Float = (Float(quantityText) ?? 0.0)
             totalValue = String(format: "%.2f", amount1AsFloat * (coinData?.USD ?? 0.0))
