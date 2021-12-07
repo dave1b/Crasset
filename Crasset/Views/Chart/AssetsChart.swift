@@ -16,7 +16,6 @@ struct AssetsChart: View {
         VStack {
             ZStack {
                 ForEach(0..<charDataObj.chartData.count) { index in
-
                     Circle()
                         .trim(from: index == 0 ? 0.0 : charDataObj.chartData[index-1].value/100,
                               to: charDataObj.chartData[index].value/100)

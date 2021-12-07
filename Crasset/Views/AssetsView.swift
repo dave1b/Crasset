@@ -14,7 +14,6 @@ struct AssetsView: View {
     @State var selection: Int? = nil
     
     @EnvironmentObject var service: CoinCoreDataService
-    static let shared = CoinCoreDataService()
     @StateObject var charDataObj = ChartDataContainer()
 
     var body: some View {
@@ -44,10 +43,10 @@ struct AssetsView: View {
                         Text(String(format: "%.2f",  crypto.amount))
                     }
                     
-                }
-            }
-            
+                }            }
+      
             .navigationTitle("Assets")
+            .navigationViewStyle(StackNavigationViewStyle())
             .toolbar {
                 Button{
                     showingSheet.toggle()
@@ -55,19 +54,22 @@ struct AssetsView: View {
                     Label("Edit", systemImage: "plus.circle.fill").font(.system(size: 25))
                         .foregroundColor(Color("ColorSet"))
                 }
-                .sheet(isPresented: $showingSheet) {
+                .sheet(isPresented: $showingSheet, onDismiss: {
+                    charDataObj.calculatePercentages()
+                }) {
                     EditPortfolioView(showSheetView: self.$showingSheet)
                 }
                 
             }
-        }.task{
-            await charDataObj.calculatePercentages()
         }
-        
+        .task{
+            charDataObj.updateCoreData(service: service)
+        }
+
     }
     
 }
-    
+
 struct AssetsView_Previews: PreviewProvider {
     static var previews: some View {
         AssetsView()
