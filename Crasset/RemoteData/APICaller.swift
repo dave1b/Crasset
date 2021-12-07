@@ -8,14 +8,12 @@
 import Foundation
 import SwiftUI
 
-class APICaller: ObservableObject {
+struct APICaller {
     static let apiURL = "https://api.coingecko.com/api/v3/"
     static let apiURL2 = "https://min-api.cryptocompare.com/data/price?fsym="
-    @Published var cryptos = [Crypto]()
-    @Published var crypto: Crypto? = nil
-    @Published var cryptoFiat: CryptoFiat? = nil
+ 
     
-    func getSingleDetailsCrypto(cryptoID: String, completionHandler: @escaping (CryptoFiat) -> Void) {
+    static func getSingleDetailsCrypto(cryptoID: String, completionHandler: @escaping (CryptoFiat) -> Void) {
         let url = URL(string: "\(APICaller.apiURL2)\(cryptoID)&tsyms=USD,CHF,EUR")!
         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
             if let error = error {
@@ -58,7 +56,7 @@ class APICaller: ObservableObject {
      task.resume()
      }*/
     
-    func getAllCryptos(currencyID: String, completionHandler: @escaping ([Crypto]) -> Void) async {
+    static func getAllCryptos(currencyID: String, completionHandler: @escaping ([Crypto]) -> Void) async {
         var url: String = "\(APICaller.apiURL)coins/markets?vs_currency=\(currencyID)&ids="
         for crypto in SupportedCrypto.getsupportedCryptoArray() {
             url = "\(url)\(crypto)%2C%20"
