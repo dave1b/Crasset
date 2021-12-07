@@ -22,7 +22,7 @@ struct CryptocurrenciesView: View {
         }
         
         .task {
-            await APICaller().getAllCryptos(currencyID: "usd"){ cryptos in
+            await APICaller.getAllCryptos(currencyID: "usd"){ cryptos in
                 self.cryptos = cryptos
             }
         }
