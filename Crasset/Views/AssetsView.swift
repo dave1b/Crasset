@@ -31,12 +31,14 @@ struct AssetsView: View {
                             .scaleEffect(index == indexOfTappedSlice ? 1.1 : 1.0)
                     }
                     if indexOfTappedSlice != -1 {
-                        Text(String(format: "%.2f", Double(charDataObj.chartData[indexOfTappedSlice].percent))+"%")
-                            .font(.title)
+                        Text(charDataObj.chartData[indexOfTappedSlice].coinID + " " + String(format: "%.2f", Double(charDataObj.chartData[indexOfTappedSlice].percent))+"%" )
+                            //.font(.title)
                     }
                 }
                 .frame(width: 200, height: 250)
                 .padding(.vertical)
+                Text("Total Assets: " + String(charDataObj.totalInUSD) + " $")
+                        .font(.title)
                 VStack{
                     List(service.portfolio){ crypto in
                         Text(crypto.coinID ?? "")
@@ -56,13 +58,17 @@ struct AssetsView: View {
                 }
                 .sheet(isPresented: $showingSheet, onDismiss: {
                     charDataObj.calculatePercentages()
+                    indexOfTappedSlice = -1
+
                 }) {
                     EditPortfolioView(showSheetView: self.$showingSheet)
+                       
                 }
                 
             }
 
         }
+      
         .task{
             charDataObj.updateCoreData(service: service)
         }
