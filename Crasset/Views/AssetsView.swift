@@ -15,38 +15,60 @@ struct AssetsView: View {
     
     @EnvironmentObject var service: CoinCoreDataService
     @StateObject var charDataObj = ChartDataContainer()
-
+    
     var body: some View {
         NavigationView {
-            VStack {
-                ZStack {
-                    ForEach(0..<charDataObj.chartData.count, id: \.self) { index in
-                        Circle()
-                            .trim(from: index == 0 ? 0.0 : charDataObj.chartData[index-1].value/100,
-                                  to: charDataObj.chartData[index].value/100)
-                            .stroke(charDataObj.chartData[index].color,lineWidth: 50)
-                            .onTapGesture {
-                                indexOfTappedSlice = indexOfTappedSlice == index ? -1 : index
-                            }
-                            .scaleEffect(index == indexOfTappedSlice ? 1.1 : 1.0)
+            ScrollView {
+                VStack {
+                    ZStack {
+                        ForEach(0..<charDataObj.chartData.count, id: \.self) { index in
+                            Circle()
+                                .trim(from: index == 0 ? 0.0 : charDataObj.chartData[index-1].value/100,
+                                      to: charDataObj.chartData[index].value/100)
+                                .stroke(charDataObj.chartData[index].color,lineWidth: 50)
+                                .onTapGesture {
+                                    indexOfTappedSlice = indexOfTappedSlice == index ? -1 : index
+                                }
+                                .scaleEffect(index == indexOfTappedSlice ? 1.1 : 1.0)
+                        }
+                        if indexOfTappedSlice != -1 {
+                            Text(charDataObj.chartData[indexOfTappedSlice].cryptoID + " " + String(format: "%.2f", Double(charDataObj.chartData[indexOfTappedSlice].percent))+"%" )
+                        }
                     }
-                    if indexOfTappedSlice != -1 {
-                        Text(charDataObj.chartData[indexOfTappedSlice].coinID + " " + String(format: "%.2f", Double(charDataObj.chartData[indexOfTappedSlice].percent))+"%" )
-                            //.font(.title)
+                    .frame(width: 200, height: 250)
+                    .padding(.vertical)
+                    Text("Total Assets: " + String(charDataObj.totalInUSD) + " $")
+                        .font(.title)
+                    LazyVStack{
+                        ForEach(service.portfolio){ crypto in
+                            VStack {
+                                HStack {
+                                    Spacer()
+                                Text("Amount: " + String(format: "%.2f", crypto.amount))
+                                }
+                                HStack {
+                                    Text(crypto.cryptoID ?? "")
+                                        .font(.system(size: 25, weight: .bold, design: .default))
+                                    Spacer()
+                                    
+                                }
+                                HStack {
+                                    Spacer()
+                                    Text("Balance: " + String(format: "%.2f", charDataObj.cryptoBalance[crypto.cryptoID ?? ""] ?? 0.0) + " $")
+                                }
+                            }.font(.system(size: 14, weight: .bold, design: .default))
+                                .foregroundColor(Color(UIColor.systemBackground))
+                                .padding()
+                        }
+                        .frame(width: 350, height: 100.0)
+                        .background(Color("ColorSet"))
+                        .cornerRadius(20)
+                        .padding([.leading, .trailing], 10.0)
+                        .padding([.top, .bottom], 0)
                     }
                 }
-                .frame(width: 200, height: 250)
-                .padding(.vertical)
-                Text("Total Assets: " + String(charDataObj.totalInUSD) + " $")
-                        .font(.title)
-                VStack{
-                    List(service.portfolio){ crypto in
-                        Text(crypto.coinID ?? "")
-                        Text(String(format: "%.2f",  crypto.amount))
-                    }
-                    
-                }            }
-      
+            }
+            
             .navigationTitle("Assets")
             .navigationViewStyle(StackNavigationViewStyle())
             .toolbar {
@@ -59,17 +81,18 @@ struct AssetsView: View {
                 .sheet(isPresented: $showingSheet, onDismiss: {
                     charDataObj.calculatePercentages()
                     indexOfTappedSlice = -1
-
+                    
                 }) {
                     EditPortfolioView(showSheetView: self.$showingSheet)
-                       
+                    
                 }
-                
             }
-
+            .background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
         }
-      
-        .task{
+
+        
+        .task {
+            indexOfTappedSlice = -1
             charDataObj.updateCoreData(service: service)
         }
 

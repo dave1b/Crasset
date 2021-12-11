@@ -16,12 +16,10 @@ struct CalculatorView: View {
     @State private var pickedCurrency2 = "USD"
     @State private var isFocused1 = false
     @State private var isFocused2 = false
-
     
     let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     
     var body: some View {
-        
         NavigationView {
             VStack(alignment: .center){
                 Spacer()
@@ -69,7 +67,7 @@ struct CalculatorView: View {
                         .cornerRadius(5.0)
                         .padding()
                         .padding([.bottom], 25.0)
-
+                    
                     CurrencyPicker(pickedCurrency: $pickedCurrency2)
                         .frame(width: 100.0, height: 25.0, alignment: .center)
                         .onChange(of: pickedCurrency2, perform: { value in
@@ -89,6 +87,7 @@ struct CalculatorView: View {
                     cryptoFiat2 = response
                 }
             }
+            .background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
             .navigationTitle("Crypto Calculator")
         }
     }
@@ -110,13 +109,11 @@ struct CalculatorView: View {
     func amount1Changed() {
         let amount1AsFloat: Float = (Float(amount1) ?? 0)
         amount2 = String(format: "%.2f", amount1AsFloat * (cryptoFiat1?.USD ?? 0.0) / (cryptoFiat2?.USD ?? 0.0))
-        print(amount2)
     }
     
     func amount2Changed() {
         let amount2AsFloat: Float = (Float(amount2) ?? 0)
         amount1 = String(format: "%.2f", amount2AsFloat * (cryptoFiat2?.USD ?? 0.0) / (cryptoFiat1?.USD ?? 0.0))
-        print(amount1)
     }
 }
 

@@ -75,14 +75,15 @@ struct CryptoDetailView: View {
                 Spacer()
             }
             .font(.system(size: 24, weight: .bold, design: .default))
-            .foregroundColor(.white)
+            .foregroundColor(Color(UIColor.systemBackground))
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 30.0)
             .background(Color("ColorSet"))
             .cornerRadius(20)
             .padding([.leading, .trailing], 10.0)
             .navigationTitle("\(capitalised) (\(cryptoSymbol))")
-        }
+        }.background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
+
     }
 }
 struct CryptoDetailView_Previews: PreviewProvider {

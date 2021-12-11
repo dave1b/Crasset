@@ -18,7 +18,10 @@ struct CryptocurrenciesView: View {
                         CryptoCard(id: crypto.id!, name: crypto.name!, symbol: crypto.symbol!, image: crypto.image!, current_price: crypto.current_price!, price_change_percentage_24h: crypto.price_change_percentage_24h!, marketCap: crypto.market_cap!, marketCapRank: crypto.market_cap_rank!, ath: crypto.ath!)
                     }
                 }
-            }.navigationTitle("All Cryptocurrencies")
+
+            }
+            .background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
+            .navigationTitle("All Cryptocurrencies")
         }
         
         .task {

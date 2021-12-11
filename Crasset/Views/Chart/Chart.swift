@@ -13,5 +13,5 @@ struct ChartData {
     var color : Color
     var percent : CGFloat
     var value : CGFloat
-    var coinID: String
+    var cryptoID: String
 }

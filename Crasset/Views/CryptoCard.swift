@@ -21,7 +21,7 @@ struct CryptoCard: View {
     var body: some View {
         NavigationLink(destination: CryptoDetailView(cryptoId: id, cryptoSymbol: symbol,cryptoImage: image, cryptoCurrentPrice: current_price, cryptoPriceChange: price_change_percentage_24h, cryptoMarketCap: marketCap, cryptoMarketCapRank: marketCapRank, ath: ath)) {
             
-            VStack() {
+            VStack{
                 HStack {
                     AsyncImage(url: URL(string: image)){ image in
                         image.resizable()
@@ -35,15 +35,13 @@ struct CryptoCard: View {
                         HStack {
                             Text(name)
                                 .font(.headline)
-                            
                             Text(symbol)
                             Spacer()
-                            let currentPrice = String(format: "%.2f", current_price)
-                            Text(currentPrice)
+                            Text(String(format: "%.2f", current_price))
                         }
                     }
                     .font(.system(size: 11, weight: .bold, design: .default))
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(UIColor.systemBackground))
                     HStack {
                         
                         Text(String(format: "%.2f", price_change_percentage_24h) + "%")

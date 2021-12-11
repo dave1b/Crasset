@@ -26,21 +26,21 @@ class CoinCoreDataService : ObservableObject {
         
     }
     
-    func updatePortfolio(coin: String, amount: Float) {
-        if let entity = portfolio.first(where: { $0.coinID == coin }) {
+    func updatePortfolio(cryptoID: String, amount: Float) {
+        if let entity = portfolio.first(where: { $0.cryptoID == cryptoID }) {
             if amount > 0 {
                 update(entity: entity, amount: amount)
             } else {
                 delete(entity: entity)
             }
         } else {
-            add(coin: coin, amount: amount)
+            add(cryptoID: cryptoID, amount: amount)
         }
     }
     
-    func getAmountOfCoin(coin: String) -> Float {
+    func getAmountOfCoin(cryptoID: String) -> Float {
         var amount: Float = 0.0
-        if let entity = portfolio.first(where: { $0.coinID == coin }) {
+        if let entity = portfolio.first(where: { $0.cryptoID == cryptoID }) {
             if entity.amount > 0 {
                 amount = entity.amount
             }
@@ -58,9 +58,9 @@ class CoinCoreDataService : ObservableObject {
         }
     }
     
-    private func add(coin: String, amount: Float) {
+    private func add(cryptoID: String, amount: Float) {
         let entity = Asset(context: container.viewContext)
-        entity.coinID = coin
+        entity.cryptoID = cryptoID
         entity.amount = amount
         applyChanges()
     }

@@ -26,7 +26,7 @@ struct EditPortfolioView: View {
                         .onChange(of: selectedCoin, perform: { value in
                             if value == selectedCoin {
                                 amount1Changed()
-                                quantityText = String(format: "%.2f", service.getAmountOfCoin(coin: value))
+                                quantityText = String(format: "%.2f", service.getAmountOfCoin(cryptoID: value))
                             }
                         })
                     Spacer()
@@ -77,7 +77,7 @@ struct EditPortfolioView: View {
             }
         } .task {
             amount1Changed()
-            quantityText = String(format: "%.2f", service.getAmountOfCoin(coin: selectedCoin))
+            quantityText = String(format: "%.2f", service.getAmountOfCoin(cryptoID: selectedCoin))
         }
     }
     
@@ -91,7 +91,7 @@ struct EditPortfolioView: View {
     }
     
     func saveButtonPressed() {
-        service.updatePortfolio(coin: selectedCoin, amount: Float(quantityText)!)
+        service.updatePortfolio(cryptoID: selectedCoin, amount: Float(quantityText)!)
     }
 }
 

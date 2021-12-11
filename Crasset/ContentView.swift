@@ -18,7 +18,7 @@ struct ContentView: View {
     private func addItem() {
         withAnimation {
             let newItem = Asset(context: viewContext)
-            newItem.coinID = String()
+            newItem.cryptoID = String()
 
             do {
                 try viewContext.save()
