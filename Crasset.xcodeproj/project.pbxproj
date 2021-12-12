@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240640862754318D00013C8D /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240640842754318D00013C8D /* Crypto.swift */; };
+		240640872754318D00013C8D /* SupportedCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240640852754318D00013C8D /* SupportedCrypto.swift */; };
+		2406408A275431A300013C8D /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24064089275431A300013C8D /* APICaller.swift */; };
+		2406408C275431C800013C8D /* CryptoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2406408B275431C800013C8D /* CryptoCard.swift */; };
+		24064090275431E800013C8D /* CryptoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2406408F275431E800013C8D /* CryptoDetailView.swift */; };
+		24064092275431FB00013C8D /* CurrencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24064091275431FB00013C8D /* CurrencyPicker.swift */; };
 		244DD7832746A8190057332B /* tabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244DD7822746A8190057332B /* tabView.swift */; };
 		244DD7862746A9210057332B /* AssetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244DD7852746A9210057332B /* AssetsView.swift */; };
 		244DD7882746A9330057332B /* CryptocurrenciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244DD7872746A9330057332B /* CryptocurrenciesView.swift */; };
 		244DD78A2746A9410057332B /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244DD7892746A9410057332B /* CalculatorView.swift */; };
-		244DD78C2746A94D0057332B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244DD78B2746A94D0057332B /* SettingsView.swift */; };
-		245BC4512748F6FE00C89E8F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245BC4502748F6FE00C89E8F /* ImagePicker.swift */; };
-		245BC4532749209C00C89E8F /* CircleProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245BC4522749209C00C89E8F /* CircleProfile.swift */; };
 		245BC4572749362000C89E8F /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245BC4562749362000C89E8F /* Chart.swift */; };
-		245BC4592749367200C89E8F /* AssetsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245BC4582749367200C89E8F /* AssetsChart.swift */; };
 		245BC45B274937A500C89E8F /* ChartDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245BC45A274937A500C89E8F /* ChartDataContainer.swift */; };
-		2479BA0A27494CE6001A154C /* AllMyCryptosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2479BA0927494CE6001A154C /* AllMyCryptosView.swift */; };
+		2471870A275607CF00ABFD55 /* EditPortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24718709275607CF00ABFD55 /* EditPortfolioView.swift */; };
+		2471870C275614EB00ABFD55 /* CryptoFiat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2471870B275614EB00ABFD55 /* CryptoFiat.swift */; };
+		2471870E27566A3400ABFD55 /* CoinCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2471870D27566A3400ABFD55 /* CoinCoreDataService.swift */; };
 		C33A03C72744F4EB008ACD27 /* CrassetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03C62744F4EB008ACD27 /* CrassetApp.swift */; };
 		C33A03C92744F4EB008ACD27 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03C82744F4EB008ACD27 /* ContentView.swift */; };
 		C33A03CB2744F4FA008ACD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C33A03CA2744F4FA008ACD27 /* Assets.xcassets */; };
@@ -47,24 +51,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		240640842754318D00013C8D /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		240640852754318D00013C8D /* SupportedCrypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedCrypto.swift; sourceTree = "<group>"; };
+		24064089275431A300013C8D /* APICaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		2406408B275431C800013C8D /* CryptoCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoCard.swift; sourceTree = "<group>"; };
+		2406408F275431E800013C8D /* CryptoDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoDetailView.swift; sourceTree = "<group>"; };
+		24064091275431FB00013C8D /* CurrencyPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyPicker.swift; sourceTree = "<group>"; };
 		244DD7822746A8190057332B /* tabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabView.swift; sourceTree = "<group>"; };
 		244DD7852746A9210057332B /* AssetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsView.swift; sourceTree = "<group>"; };
 		244DD7872746A9330057332B /* CryptocurrenciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrenciesView.swift; sourceTree = "<group>"; };
 		244DD7892746A9410057332B /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
-		244DD78B2746A94D0057332B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		245BC4502748F6FE00C89E8F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		245BC4522749209C00C89E8F /* CircleProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfile.swift; sourceTree = "<group>"; };
 		245BC4562749362000C89E8F /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
-		245BC4582749367200C89E8F /* AssetsChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsChart.swift; sourceTree = "<group>"; };
 		245BC45A274937A500C89E8F /* ChartDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataContainer.swift; sourceTree = "<group>"; };
-		2479BA0927494CE6001A154C /* AllMyCryptosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMyCryptosView.swift; sourceTree = "<group>"; };
+		24718709275607CF00ABFD55 /* EditPortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPortfolioView.swift; sourceTree = "<group>"; };
+		2471870B275614EB00ABFD55 /* CryptoFiat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoFiat.swift; sourceTree = "<group>"; };
+		2471870D27566A3400ABFD55 /* CoinCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCoreDataService.swift; sourceTree = "<group>"; };
 		C33A03C32744F4EB008ACD27 /* Crasset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crasset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33A03C62744F4EB008ACD27 /* CrassetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrassetApp.swift; sourceTree = "<group>"; };
 		C33A03C82744F4EB008ACD27 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C33A03CA2744F4FA008ACD27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C33A03CD2744F4FA008ACD27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C33A03CF2744F4FA008ACD27 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		C33A03D22744F4FA008ACD27 /* Crasset.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Crasset.xcdatamodel; sourceTree = "<group>"; };
+		C33A03D22744F4FA008ACD27 /* Crasset.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = Crasset.xcdatamodel; sourceTree = "<group>"; };
 		C33A03D82744F4FB008ACD27 /* CrassetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrassetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33A03DC2744F4FB008ACD27 /* CrassetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrassetTests.swift; sourceTree = "<group>"; };
 		C33A03E22744F4FB008ACD27 /* CrassetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrassetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,46 +105,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		240640832754318D00013C8D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				240640842754318D00013C8D /* Crypto.swift */,
+				2471870B275614EB00ABFD55 /* CryptoFiat.swift */,
+				240640852754318D00013C8D /* SupportedCrypto.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		24064088275431A300013C8D /* RemoteData */ = {
+			isa = PBXGroup;
+			children = (
+				24064089275431A300013C8D /* APICaller.swift */,
+			);
+			path = RemoteData;
+			sourceTree = "<group>";
+		};
 		244DD7842746A90A0057332B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				245BC4552749360D00C89E8F /* Chart */,
-				245BC4542749256400C89E8F /* Settings */,
 				244DD7822746A8190057332B /* tabView.swift */,
 				244DD7852746A9210057332B /* AssetsView.swift */,
 				244DD7872746A9330057332B /* CryptocurrenciesView.swift */,
+				2406408F275431E800013C8D /* CryptoDetailView.swift */,
+				2406408B275431C800013C8D /* CryptoCard.swift */,
+				24064091275431FB00013C8D /* CurrencyPicker.swift */,
 				244DD7892746A9410057332B /* CalculatorView.swift */,
-				2479BA0927494CE6001A154C /* AllMyCryptosView.swift */,
+				24718709275607CF00ABFD55 /* EditPortfolioView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		245BC44F2748F67900C89E8F /* Imagepicker */ = {
-			isa = PBXGroup;
-			children = (
-				245BC4502748F6FE00C89E8F /* ImagePicker.swift */,
-				245BC4522749209C00C89E8F /* CircleProfile.swift */,
-			);
-			path = Imagepicker;
-			sourceTree = "<group>";
-		};
-		245BC4542749256400C89E8F /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				244DD78B2746A94D0057332B /* SettingsView.swift */,
-				245BC44F2748F67900C89E8F /* Imagepicker */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		245BC4552749360D00C89E8F /* Chart */ = {
 			isa = PBXGroup;
 			children = (
 				245BC4562749362000C89E8F /* Chart.swift */,
-				245BC4582749367200C89E8F /* AssetsChart.swift */,
 				245BC45A274937A500C89E8F /* ChartDataContainer.swift */,
 			);
 			path = Chart;
+			sourceTree = "<group>";
+		};
+		24718704275601A600ABFD55 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2471870D27566A3400ABFD55 /* CoinCoreDataService.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		C33A03BA2744F4EB008ACD27 = {
@@ -162,6 +179,9 @@
 		C33A03C52744F4EB008ACD27 /* Crasset */ = {
 			isa = PBXGroup;
 			children = (
+				24718704275601A600ABFD55 /* CoreData */,
+				24064088275431A300013C8D /* RemoteData */,
+				240640832754318D00013C8D /* Data */,
 				244DD7842746A90A0057332B /* Views */,
 				C33A03C62744F4EB008ACD27 /* CrassetApp.swift */,
 				C33A03C82744F4EB008ACD27 /* ContentView.swift */,
@@ -333,20 +353,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				C33A03D02744F4FA008ACD27 /* Persistence.swift in Sources */,
-				2479BA0A27494CE6001A154C /* AllMyCryptosView.swift in Sources */,
 				C33A03D32744F4FA008ACD27 /* Crasset.xcdatamodeld in Sources */,
+				240640872754318D00013C8D /* SupportedCrypto.swift in Sources */,
 				244DD7832746A8190057332B /* tabView.swift in Sources */,
-				245BC4532749209C00C89E8F /* CircleProfile.swift in Sources */,
+				2406408C275431C800013C8D /* CryptoCard.swift in Sources */,
 				245BC45B274937A500C89E8F /* ChartDataContainer.swift in Sources */,
-				244DD78C2746A94D0057332B /* SettingsView.swift in Sources */,
+				2471870C275614EB00ABFD55 /* CryptoFiat.swift in Sources */,
+				24064092275431FB00013C8D /* CurrencyPicker.swift in Sources */,
 				C33A03C92744F4EB008ACD27 /* ContentView.swift in Sources */,
+				240640862754318D00013C8D /* Crypto.swift in Sources */,
 				244DD78A2746A9410057332B /* CalculatorView.swift in Sources */,
+				24064090275431E800013C8D /* CryptoDetailView.swift in Sources */,
 				C33A03C72744F4EB008ACD27 /* CrassetApp.swift in Sources */,
 				245BC4572749362000C89E8F /* Chart.swift in Sources */,
-				245BC4512748F6FE00C89E8F /* ImagePicker.swift in Sources */,
+				2406408A275431A300013C8D /* APICaller.swift in Sources */,
+				2471870E27566A3400ABFD55 /* CoinCoreDataService.swift in Sources */,
 				244DD7862746A9210057332B /* AssetsView.swift in Sources */,
-				245BC4592749367200C89E8F /* AssetsChart.swift in Sources */,
 				244DD7882746A9330057332B /* CryptocurrenciesView.swift in Sources */,
+				2471870A275607CF00ABFD55 /* EditPortfolioView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,7 +531,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Crasset/Preview Content\"";
-				DEVELOPMENT_TEAM = 9FBLM9P3TQ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -536,7 +560,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Crasset/Preview Content\"";
-				DEVELOPMENT_TEAM = 9FBLM9P3TQ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
