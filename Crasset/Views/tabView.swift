@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct tabView: View {
+    
+    init() {
+
+   UITabBar.appearance().backgroundColor = UIColor.white
+
+   }
+    
     var body: some View {
         TabView {
             AssetsView()

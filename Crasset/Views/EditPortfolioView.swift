@@ -35,7 +35,6 @@ struct EditPortfolioView: View {
                         Spacer()
                         Text(String(format: "%.2f", coinData?.USD ?? 0.0))
                     }
-
                     Divider()
                     HStack {
                         Text("Amount holding:" )
@@ -44,7 +43,6 @@ struct EditPortfolioView: View {
                             .multilineTextAlignment(.trailing)
                             .keyboardType(.decimalPad)
                     }
-
                     Divider()
                     HStack {
                         Text("Holding in USD")
@@ -53,9 +51,14 @@ struct EditPortfolioView: View {
                     }
                 }
                 .padding()
+                .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                .cornerRadius(20)
+                
+
                 .font(.headline)
                 
             }
+            .background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
             .navigationBarTitle(Text("Edit Portfolio"))
             .navigationBarItems(leading: Button(action: {
                 self.showSheetView = false
@@ -79,6 +82,7 @@ struct EditPortfolioView: View {
             amount1Changed()
             quantityText = String(format: "%.2f", service.getAmountOfCoin(cryptoID: selectedCoin))
         }
+
     }
     
     func amount1Changed() {

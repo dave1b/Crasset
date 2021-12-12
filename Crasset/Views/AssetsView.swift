@@ -68,9 +68,8 @@ struct AssetsView: View {
                     }
                 }
             }
-            
-            .navigationTitle("Assets")
-            .navigationViewStyle(StackNavigationViewStyle())
+            .background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
+
             .toolbar {
                 Button{
                     showingSheet.toggle()
@@ -87,7 +86,10 @@ struct AssetsView: View {
                     
                 }
             }
-            .background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
+            
+            .navigationTitle("Assets")
+            .navigationViewStyle(StackNavigationViewStyle())
+   
         }
 
         
