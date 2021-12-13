@@ -47,9 +47,9 @@ struct CryptoDetailView: View {
                 
                 Text("Price")
                 HStack {
-                    Text(String(format: "%.2f", cryptoCurrentPrice)).font(.system(size: 20, design: .default))
+                    Text(String(format: "%.6f", cryptoCurrentPrice)).font(.system(size: 20, design: .default))
                     VStack(){
-                        Text(String(format: "%.2f", cryptoPriceChange) + "%" + " (24h)")
+                        Text(String(format: "%.3f", cryptoPriceChange) + "%" + " (24h)")
                             .font(.system(size: 16, design: .default))
                             .foregroundColor(cryptoPriceChange < 0 ? .red : .green)
                     }
