@@ -16,6 +16,7 @@ struct CalculatorView: View {
     @State private var pickedCurrency2 = "USD"
     @State private var isFocused1 = false
     @State private var isFocused2 = false
+    @FocusState private var amountIsFocused: Bool
     
     let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     
@@ -30,6 +31,7 @@ struct CalculatorView: View {
                             isFocused1 = changed
                         })
                         .keyboardType(.numberPad)
+                        .focused($amountIsFocused)
                         .onChange(of: amount1) { newValue in
                             if isFocused1 {
                                 amount1Changed()
@@ -57,6 +59,7 @@ struct CalculatorView: View {
                             isFocused2 = changed
                         })
                         .keyboardType(.numberPad)
+                        .focused($amountIsFocused)
                         .onChange(of: amount2) { newValue in
                             if isFocused2 {
                                 amount2Changed()
@@ -89,6 +92,15 @@ struct CalculatorView: View {
             }
             .background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
             .navigationTitle("Crypto Calculator")
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        amountIsFocused = false
+                    }
+                }
+            }
+
         }
     }
     
