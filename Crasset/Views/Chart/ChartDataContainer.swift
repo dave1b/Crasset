@@ -14,7 +14,7 @@ import SwiftUI
     let emptyColor = Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     private var service: CoinCoreDataService?
     @Published var cryptoBalance:[String: Float] = [:]
-    @Published var chartData : [ChartData] = [ChartData(color: Color(#colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)), percent: 100, value: 10, cryptoID: "unknown")]
+    @Published var chartData : [ChartData] = []
     
     func updateCoreData(service: CoinCoreDataService) async {
         self.service = service
