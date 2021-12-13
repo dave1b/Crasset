@@ -20,12 +20,12 @@ struct CurrencyPicker: View{
                 Text("\($0)")
             }
         }.pickerStyle(WheelPickerStyle())
-            .compositingGroup()
-            .clipped()
-        .frame(width: 150.0, height: 75.0, alignment: .center)
+        .frame(width: 200.0, height: 125.0, alignment: .center)
         .padding()
         .background(lightGreyColor)
-        .cornerRadius(5.0)
-       
+        .compositingGroup()
+        .clipped(antialiased: true)
+        .cornerRadius(10.0)
+
     }
 }

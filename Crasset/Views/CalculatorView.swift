@@ -10,13 +10,16 @@ import SwiftUI
 struct CalculatorView: View {
     @State var cryptoFiat1: CryptoFiat?
     @State var cryptoFiat2: CryptoFiat?
-    @State private var amount1: String = "0.0"
-    @State private var amount2: String = "0.0"
+    @State private var amount1: String = "0.00"
+    @State private var amount2: String = "0.00"
     @State private var pickedCurrency1 = "USD"
     @State private var pickedCurrency2 = "USD"
     @State private var isFocused1 = false
     @State private var isFocused2 = false
     @FocusState private var amountIsFocused: Bool
+    @FocusState private var picker1Changed: Bool
+    @FocusState private var picker2Changed: Bool
+
     
     let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     
@@ -33,7 +36,7 @@ struct CalculatorView: View {
                         .keyboardType(.numberPad)
                         .focused($amountIsFocused)
                         .onChange(of: amount1) { newValue in
-                            if isFocused1 {
+                            if isFocused1 && !picker1Changed  {
                                 Task{
                                     await amount1Changed()
                                 }
@@ -42,12 +45,11 @@ struct CalculatorView: View {
                     
                         .padding()
                         .background(lightGreyColor)
-                        .cornerRadius(5.0)
+                        .cornerRadius(10.0)
                         .padding()
-                        .padding([.bottom], 25.0)
+                        .padding([.bottom], -10.0)
                     CurrencyPicker(pickedCurrency: $pickedCurrency1)
-                        .frame(width: 100.0, height: 25.0, alignment: .center)
-                        .onChange(of: pickedCurrency1, perform: { value in
+                            .onChange(of: pickedCurrency1, perform: { value in
                             Task{
                                 await picker1Changed()
                             }
@@ -65,7 +67,7 @@ struct CalculatorView: View {
                         .keyboardType(.numberPad)
                         .focused($amountIsFocused)
                         .onChange(of: amount2) { newValue in
-                            if isFocused2 {
+                            if isFocused2 && !picker2Changed {
                                 Task{
                                     await amount2Changed()
                                 }
@@ -73,12 +75,11 @@ struct CalculatorView: View {
                         }
                         .padding()
                         .background(lightGreyColor)
-                        .cornerRadius(5.0)
+                        .cornerRadius(10.0)
                         .padding()
-                        .padding([.bottom], 25.0)
-                    
+                        .padding([.bottom], -10.0)
+
                     CurrencyPicker(pickedCurrency: $pickedCurrency2)
-                        .frame(width: 100.0, height: 25.0, alignment: .center)
                         .onChange(of: pickedCurrency2, perform: { value in
                             if value == pickedCurrency2 {
                                 Task{
@@ -109,13 +110,17 @@ struct CalculatorView: View {
     }
     
     func picker1Changed() async {
+        picker1Changed = true
         cryptoFiat1 = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1))
         await amount2Changed()
+        picker1Changed = false
     }
     
     func picker2Changed() async {
+        picker2Changed = true
         cryptoFiat2 = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2))
         await amount1Changed()
+        picker2Changed = false
     }
     
     func amount1Changed() async {
