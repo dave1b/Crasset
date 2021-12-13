@@ -19,7 +19,7 @@ struct EditPortfolioView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
-                    Spacer()
+                    Spacer().frame(height: 50)
                     CurrencyPicker(pickedCurrency: $selectedCoin)
                         .frame(width: 100.0, height: 25.0, alignment: .center)
                         .padding(.all, 20)
@@ -31,7 +31,7 @@ struct EditPortfolioView: View {
                                 }
                             }
                         })
-                    Spacer()
+                    Spacer().frame(height: 50)
                     HStack {
                         Text("Current price of \(selectedCoin):")
                         Spacer()
@@ -51,12 +51,13 @@ struct EditPortfolioView: View {
                         Spacer()
                         Text(totalValue)
                     }
+                    Spacer()
                 }
                 .padding()
                 .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                 .cornerRadius(20)
-                
-                
+                .padding()
+
                 .font(.headline)
                 
             }
