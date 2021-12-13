@@ -78,24 +78,22 @@ struct AssetsView: View {
                         .foregroundColor(Color("ColorSet"))
                 }
                 .sheet(isPresented: $showingSheet, onDismiss: {
-                    charDataObj.calculatePercentages()
                     indexOfTappedSlice = -1
+                    Task {
+                        await charDataObj.calculatePercentages()
+                    }
                     
                 }) {
                     EditPortfolioView(showSheetView: self.$showingSheet)
-                    
                 }
             }
-            
             .navigationTitle("Assets")
             .navigationViewStyle(StackNavigationViewStyle())
-   
         }
-
         
         .task {
             indexOfTappedSlice = -1
-            charDataObj.updateCoreData(service: service)
+            await charDataObj.updateCoreData(service: service)
         }
 
     }

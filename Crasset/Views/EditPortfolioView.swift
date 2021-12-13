@@ -14,7 +14,7 @@ struct EditPortfolioView: View {
     @Binding var showSheetView: Bool
     @State private var totalValue: String = ""
     @EnvironmentObject var service: CoinCoreDataService
-
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -25,8 +25,10 @@ struct EditPortfolioView: View {
                         .padding(.all, 20)
                         .onChange(of: selectedCoin, perform: { value in
                             if value == selectedCoin {
-                                amount1Changed()
-                                quantityText = String(format: "%.2f", service.getAmountOfCoin(cryptoID: value))
+                                Task{
+                                    await amount1Changed()
+                                    quantityText = String(format: "%.2f", service.getAmountOfCoin(cryptoID: value))
+                                }
                             }
                         })
                     Spacer()
@@ -54,7 +56,7 @@ struct EditPortfolioView: View {
                 .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                 .cornerRadius(20)
                 
-
+                
                 .font(.headline)
                 
             }
@@ -72,25 +74,25 @@ struct EditPortfolioView: View {
             }, label: {
                 Text("SAVE").bold()
             }))
-
+            
             .onChange(of: quantityText) { newValue in
                 if newValue == quantityText {
-                    amount1Changed()
+                    Task{
+                        await amount1Changed()
+                    }
                 }
             }
         } .task {
-            amount1Changed()
+            await amount1Changed()
             quantityText = String(format: "%.2f", service.getAmountOfCoin(cryptoID: selectedCoin))
         }
-
+        
     }
     
-    func amount1Changed() {
-        APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: selectedCoin)){ (response) in
-            coinData = response
-            let amount1AsFloat: Float = (Float(quantityText) ?? 0.0)
-            totalValue = String(format: "%.2f", amount1AsFloat * (coinData?.USD ?? 0.0))
-        }
+    func amount1Changed() async {
+        coinData = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: selectedCoin))
+        let amount1AsFloat: Float = (Float(quantityText) ?? 0.0)
+        totalValue = String(format: "%.2f", amount1AsFloat * (coinData?.USD ?? 0.0))
         
     }
     

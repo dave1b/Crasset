@@ -34,7 +34,9 @@ struct CalculatorView: View {
                         .focused($amountIsFocused)
                         .onChange(of: amount1) { newValue in
                             if isFocused1 {
-                                amount1Changed()
+                                Task{
+                                    await amount1Changed()
+                                }
                             }
                         }
                     
@@ -46,7 +48,9 @@ struct CalculatorView: View {
                     CurrencyPicker(pickedCurrency: $pickedCurrency1)
                         .frame(width: 100.0, height: 25.0, alignment: .center)
                         .onChange(of: pickedCurrency1, perform: { value in
-                            picker1Changed()
+                            Task{
+                                await picker1Changed()
+                            }
                         })
                 }
                 
@@ -62,7 +66,9 @@ struct CalculatorView: View {
                         .focused($amountIsFocused)
                         .onChange(of: amount2) { newValue in
                             if isFocused2 {
-                                amount2Changed()
+                                Task{
+                                    await amount2Changed()
+                                }
                             }
                         }
                         .padding()
@@ -75,7 +81,9 @@ struct CalculatorView: View {
                         .frame(width: 100.0, height: 25.0, alignment: .center)
                         .onChange(of: pickedCurrency2, perform: { value in
                             if value == pickedCurrency2 {
-                                picker2Changed()
+                                Task{
+                                    await picker2Changed()
+                                }
                             }
                         })
                 }
@@ -83,12 +91,8 @@ struct CalculatorView: View {
                 Spacer()
                 
             }.task {
-                APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1)){ (response) in
-                    cryptoFiat1 = response
-                }
-                APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2)){ (response) in
-                    cryptoFiat2 = response
-                }
+                cryptoFiat1 = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1))
+                cryptoFiat2 = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2))
             }
             .background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
             .navigationTitle("Crypto Calculator")
@@ -100,30 +104,26 @@ struct CalculatorView: View {
                     }
                 }
             }
-
+            
         }
     }
     
-    func picker1Changed() {
-        APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1)){ (response) in
-            cryptoFiat1 = response
-            amount2Changed()
-        }
+    func picker1Changed() async {
+        cryptoFiat1 = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1))
+        await amount2Changed()
     }
     
-    func picker2Changed(){
-        APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2)){ (response) in
-            cryptoFiat2 = response
-            amount1Changed()
-        }
+    func picker2Changed() async {
+        cryptoFiat2 = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2))
+        await amount1Changed()
     }
     
-    func amount1Changed() {
+    func amount1Changed() async {
         let amount1AsFloat: Float = (Float(amount1) ?? 0)
         amount2 = String(format: "%.2f", amount1AsFloat * (cryptoFiat1?.USD ?? 0.0) / (cryptoFiat2?.USD ?? 0.0))
     }
     
-    func amount2Changed() {
+    func amount2Changed() async {
         let amount2AsFloat: Float = (Float(amount2) ?? 0)
         amount1 = String(format: "%.2f", amount2AsFloat * (cryptoFiat2?.USD ?? 0.0) / (cryptoFiat1?.USD ?? 0.0))
     }

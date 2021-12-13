@@ -25,8 +25,10 @@ struct CryptocurrenciesView: View {
         }
         
         .task {
-            await APICaller.getAllCryptos(currencyID: "usd"){ cryptos in
-                self.cryptos = cryptos
+            do {
+                self.cryptos = try await APICaller.getAllCryptos(currencyID: "usd")
+            }  catch {
+                print("Request failed with error: \(error)")
             }
         }
         
