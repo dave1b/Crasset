@@ -22,8 +22,7 @@ struct CurrencyPicker: View{
         }.pickerStyle(WheelPickerStyle())
         .frame(width: 200.0, height: 125.0, alignment: .center)
         .padding()
-        .background(lightGreyColor)
-        .compositingGroup()
+        .background(Color.white)        .compositingGroup()
         .clipped(antialiased: true)
         .cornerRadius(10.0)
 

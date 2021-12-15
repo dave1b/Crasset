@@ -29,7 +29,7 @@ struct tabView: View {
             
             CalculatorView()
                 .tabItem({
-                    Label("Calculator", systemImage: "square.grid.3x3.bottomright.filled")
+                    Label("Calculator", systemImage: "plusminus.circle")
                 })
           
         }
