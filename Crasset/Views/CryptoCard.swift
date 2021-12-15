@@ -37,7 +37,7 @@ struct CryptoCard: View {
                                 .font(.headline)
                             Text(symbol)
                             Spacer()
-                            Text(String(format: "%.2f", current_price))
+                            Text(String(format: "%.2f", current_price) + " $")
                         }
                     }
                     .font(.system(size: 11, weight: .bold, design: .default))

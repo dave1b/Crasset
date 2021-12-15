@@ -47,7 +47,7 @@ struct CryptoDetailView: View {
                 
                 Text("Price")
                 HStack {
-                    Text(String(format: "%.6f", cryptoCurrentPrice)).font(.system(size: 20, design: .default))
+                    Text(String(format: "%.6f", cryptoCurrentPrice) + " $").font(.system(size: 20, design: .default))
                     VStack(){
                         Text(String(format: "%.3f", cryptoPriceChange) + "%" + " (24h)")
                             .font(.system(size: 16, design: .default))
@@ -58,7 +58,7 @@ struct CryptoDetailView: View {
                     Spacer()
                         .frame(height: 30)
                     Text("Market Cap")
-                    Text(String(format: "%.2f", cryptoMarketCap)).font(.system(size: 20, design: .default))
+                    Text(String(format: "%.2f", cryptoMarketCap) + " $").font(.system(size: 20, design: .default))
                     Spacer()
                         .frame(height: 30)
                     Text("Market Cap Rank")
@@ -66,7 +66,7 @@ struct CryptoDetailView: View {
                     Spacer()
                         .frame(height: 30)
                     Text("ATH")
-                    Text(String(format: "%.2f", ath)).font(.system(size: 20, design: .default))
+                    Text(String(format: "%.2f", ath) + " $").font(.system(size: 20, design: .default))
                     Spacer()
                         .frame(height: 50)
                 }
@@ -82,7 +82,7 @@ struct CryptoDetailView: View {
             .cornerRadius(20)
             .padding([.leading, .trailing], 10.0)
             .navigationTitle("\(capitalised) (\(cryptoSymbol))")
-        }.background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
+        }.background(Color(#colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)))
 
     }
 }
