@@ -68,7 +68,7 @@ struct AssetsView: View {
                     }
                 }
             }
-            .background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
+            .background(Color(#colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)))
 
             .toolbar {
                 Button{

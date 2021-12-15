@@ -14,15 +14,17 @@ struct EditPortfolioView: View {
     @Binding var showSheetView: Bool
     @State private var totalValue: String = ""
     @EnvironmentObject var service: CoinCoreDataService
+    @FocusState private var amountIsFocused: Bool
+
     
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 20) {
-                    Spacer().frame(height: 50)
+                Spacer().frame(height: 75)
+                VStack(spacing: 30) {
+                    
                     CurrencyPicker(pickedCurrency: $selectedCoin)
-                        .frame(width: 100.0, height: 25.0, alignment: .center)
-                        .padding(.all, 20)
+                    
                         .onChange(of: selectedCoin, perform: { value in
                             if value == selectedCoin {
                                 Task{
@@ -31,37 +33,45 @@ struct EditPortfolioView: View {
                                 }
                             }
                         })
-                    Spacer().frame(height: 50)
-                    HStack {
-                        Text("Current price of \(selectedCoin):")
-                        Spacer()
-                        Text(String(format: "%.2f", coinData?.USD ?? 0.0))
-                    }
-                    Divider()
+                    Spacer()
                     HStack {
                         Text("Amount holding:" )
                         Spacer()
                         TextField("", text: $quantityText)
                             .multilineTextAlignment(.trailing)
                             .keyboardType(.decimalPad)
+                            .focused($amountIsFocused)
                     }
                     Divider()
                     HStack {
-                        Text("Holding in USD")
+                        Text("Current price of \(selectedCoin):")
                         Spacer()
-                        Text(totalValue)
+                        Text(String(format: "%.2f", coinData?.USD ?? 0.0) + " $")
+                    }
+                    
+                    Divider()
+                    HStack {
+                        Text("Your holdings value")
+                        Spacer()
+                        Text(totalValue + " $")
                     }
                     Spacer()
                 }
                 .padding()
-                .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
-                .cornerRadius(20)
                 .padding()
-
+                
                 .font(.headline)
                 
             }
-            .background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
+            .background(Color(#colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)))
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Done") {
+                        amountIsFocused = false
+                    }
+                }
+            } 
             .navigationBarTitle(Text("Edit Portfolio"))
             .navigationBarItems(leading: Button(action: {
                 self.showSheetView = false

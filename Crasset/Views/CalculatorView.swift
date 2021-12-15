@@ -19,44 +19,44 @@ struct CalculatorView: View {
     @FocusState private var amountIsFocused: Bool
     @FocusState private var picker1Changed: Bool
     @FocusState private var picker2Changed: Bool
-
-    
-    let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
     
     var body: some View {
         NavigationView {
             VStack(alignment: .center){
                 Spacer()
                 VStack{
-                    TextField(
-                        "Currency 1",
-                        text: $amount1, onEditingChanged: { (changed) in
-                            isFocused1 = changed
-                        })
-                        .keyboardType(.numberPad)
-                        .focused($amountIsFocused)
-                        .onChange(of: amount1) { newValue in
-                            if isFocused1 && !picker1Changed  {
-                                Task{
-                                    await amount1Changed()
-                                }
-                            }
-                        }
-                    
-                        .padding()
-                        .background(lightGreyColor)
-                        .cornerRadius(10.0)
-                        .padding()
-                        .padding([.bottom], -10.0)
+                   
                     CurrencyPicker(pickedCurrency: $pickedCurrency1)
-                            .onChange(of: pickedCurrency1, perform: { value in
+                        .onChange(of: pickedCurrency1, perform: { value in
                             Task{
                                 await picker1Changed()
                             }
-                        })
+                        }) .padding([.bottom], -10.0)
                 }
+                TextField(
+                    "Currency 1",
+                    text: $amount1, onEditingChanged: { (changed) in
+                        isFocused1 = changed
+                    })
+                    .keyboardType(.numberPad)
+                    .focused($amountIsFocused)
+                    .onChange(of: amount1) { newValue in
+                        if isFocused1 && !picker1Changed  {
+                            Task{
+                                await amount1Changed()
+                            }
+                        }
+                    }
                 
-                Spacer()
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(10.0)
+                    .padding()
+                    
+                
+              
+                Image(systemName: "arrow.up.arrow.down").resizable().frame(width: 40, height: 40).padding(5)
+               
                 
                 VStack{
                     TextField(
@@ -74,11 +74,11 @@ struct CalculatorView: View {
                             }
                         }
                         .padding()
-                        .background(lightGreyColor)
+                        .background(Color.white)
                         .cornerRadius(10.0)
                         .padding()
                         .padding([.bottom], -10.0)
-
+                    
                     CurrencyPicker(pickedCurrency: $pickedCurrency2)
                         .onChange(of: pickedCurrency2, perform: { value in
                             if value == pickedCurrency2 {
@@ -89,14 +89,14 @@ struct CalculatorView: View {
                         })
                 }
                 
+                
                 Spacer()
                 
             }.task {
                 cryptoFiat1 = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1))
                 cryptoFiat2 = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2))
             }
-            .background(Color(#colorLiteral(red: 0.7303430678, green: 0.7596959392, blue: 0.6726173771, alpha: 1)))
-            .navigationTitle("Crypto Calculator")
+            .background(Color(#colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)))
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
@@ -104,7 +104,8 @@ struct CalculatorView: View {
                         amountIsFocused = false
                     }
                 }
-            }
+            }            .navigationTitle("Crypto Calculator")
+            
             
         }
     }
