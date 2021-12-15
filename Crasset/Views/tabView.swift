@@ -10,11 +10,9 @@ import SwiftUI
 struct tabView: View {
     
     init() {
-
-   UITabBar.appearance().backgroundColor = UIColor.white
-
-   }
-    
+        UITabBar.appearance().backgroundColor = UIColor.white
+    }
+ 
     var body: some View {
         TabView {
             AssetsView()
@@ -31,7 +29,6 @@ struct tabView: View {
                 .tabItem({
                     Label("Calculator", systemImage: "plusminus.circle")
                 })
-          
         }
     }
 }

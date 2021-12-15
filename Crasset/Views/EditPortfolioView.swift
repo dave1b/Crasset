@@ -15,16 +15,13 @@ struct EditPortfolioView: View {
     @State private var totalValue: String = ""
     @EnvironmentObject var service: CoinCoreDataService
     @FocusState private var amountIsFocused: Bool
-
     
     var body: some View {
         NavigationView {
             ScrollView {
                 Spacer().frame(height: 75)
                 VStack(spacing: 30) {
-                    
                     CurrencyPicker(pickedCurrency: $selectedCoin)
-                    
                         .onChange(of: selectedCoin, perform: { value in
                             if value == selectedCoin {
                                 Task{
@@ -108,7 +105,7 @@ struct EditPortfolioView: View {
     }
     
     func saveButtonPressed() {
-        service.updatePortfolio(cryptoID: selectedCoin, amount: Float(quantityText)!)
+        service.updateAssets(cryptoID: selectedCoin, amount: Float(quantityText)!)
     }
 }
 

@@ -25,7 +25,6 @@ struct CalculatorView: View {
             VStack(alignment: .center){
                 Spacer()
                 VStack{
-                   
                     CurrencyPicker(pickedCurrency: $pickedCurrency1)
                         .onChange(of: pickedCurrency1, perform: { value in
                             Task{
@@ -47,16 +46,12 @@ struct CalculatorView: View {
                             }
                         }
                     }
-                
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10.0)
                     .padding()
-                    
                 
-              
                 Image(systemName: "arrow.up.arrow.down").resizable().frame(width: 40, height: 40).padding(5)
-               
                 
                 VStack{
                     TextField(
@@ -88,8 +83,6 @@ struct CalculatorView: View {
                             }
                         })
                 }
-                
-                
                 Spacer()
                 
             }.task {
@@ -104,8 +97,7 @@ struct CalculatorView: View {
                         amountIsFocused = false
                     }
                 }
-            }            .navigationTitle("Crypto Calculator")
-            
+            }.navigationTitle("Crypto Calculator")
             
         }
     }

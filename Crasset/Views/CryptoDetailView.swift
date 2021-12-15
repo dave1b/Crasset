@@ -35,44 +35,48 @@ struct CryptoDetailView: View {
     var body: some View {
         
         ScrollView() {
-            VStack(alignment: .leading, spacing: 5.0) {
-                AsyncImage(url: URL(string: cryptoImage)){ image in
-                    image.resizable()
-                } placeholder: {
-                    ProgressView()
-                }.aspectRatio(contentMode: .fit)
-                    .frame(width: 75, alignment: .leading)
-                    .padding([.top, .bottom], 40)
-                    .padding(.leading, -10.0)
+            ZStack{
+                Color("BackgroundColor")
                 
-                Text("Price")
-                HStack {
-                    Text(String(format: "%.6f", cryptoCurrentPrice) + " $").font(.system(size: 20, design: .default))
-                    VStack(){
-                        Text(String(format: "%.3f", cryptoPriceChange) + "%" + " (24h)")
-                            .font(.system(size: 16, design: .default))
-                            .foregroundColor(cryptoPriceChange < 0 ? .red : .green)
+                VStack(alignment: .leading, spacing: 5.0) {
+                    AsyncImage(url: URL(string: cryptoImage)){ image in
+                        image.resizable()
+                    } placeholder: {
+                        ProgressView()
+                    }.aspectRatio(contentMode: .fit)
+                        .frame(width: 75, alignment: .leading)
+                        .padding([.top, .bottom], 40)
+                        .padding(.leading, -10.0)
+                    
+                    Text("Price")
+                    HStack {
+                        Text(String(format: "%.6f", cryptoCurrentPrice) + " $").font(.system(size: 20, design: .default))
+                        VStack(){
+                            Text(String(format: "%.3f", cryptoPriceChange) + "%" + " (24h)")
+                                .font(.system(size: 16, design: .default))
+                                .foregroundColor(cryptoPriceChange < 0 ? .red : .green)
+                        }
                     }
+                    Group{
+                        Spacer()
+                            .frame(height: 30)
+                        Text("Market Cap")
+                        Text(String(format: "%.2f", cryptoMarketCap) + " $").font(.system(size: 20, design: .default))
+                        Spacer()
+                            .frame(height: 30)
+                        Text("Market Cap Rank")
+                        Text(String(cryptoMarketCapRank)).font(.system(size: 20, design: .default))
+                        Spacer()
+                            .frame(height: 30)
+                        Text("ATH")
+                        Text(String(format: "%.2f", ath) + " $").font(.system(size: 20, design: .default))
+                        Spacer()
+                            .frame(height: 50)
+                    }
+                    
+                    
+                    Spacer()
                 }
-                Group{
-                    Spacer()
-                        .frame(height: 30)
-                    Text("Market Cap")
-                    Text(String(format: "%.2f", cryptoMarketCap) + " $").font(.system(size: 20, design: .default))
-                    Spacer()
-                        .frame(height: 30)
-                    Text("Market Cap Rank")
-                    Text(String(cryptoMarketCapRank)).font(.system(size: 20, design: .default))
-                    Spacer()
-                        .frame(height: 30)
-                    Text("ATH")
-                    Text(String(format: "%.2f", ath) + " $").font(.system(size: 20, design: .default))
-                    Spacer()
-                        .frame(height: 50)
-                }
-               
-                
-                Spacer()
             }
             .font(.system(size: 24, weight: .bold, design: .default))
             .foregroundColor(Color(UIColor.systemBackground))
@@ -82,10 +86,11 @@ struct CryptoDetailView: View {
             .cornerRadius(20)
             .padding([.leading, .trailing], 10.0)
             .navigationTitle("\(capitalised) (\(cryptoSymbol))")
-        }.background(Color(#colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)))
-
+        }
+        
     }
 }
+
 struct CryptoDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CryptoDetailView(cryptoId: "bitcoin", cryptoSymbol: "btc", cryptoImage: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579", cryptoCurrentPrice: 54597, cryptoPriceChange: -0.04094 , cryptoMarketCap: 935248999.00, cryptoMarketCapRank: 1, ath: 132334.32)

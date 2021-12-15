@@ -22,19 +22,18 @@ class CoinCoreDataService : ObservableObject {
                 print("Error loading Core Data! \(error)")
             }
         }
-        self.getPortfolio()
-        
+        self.getAssets()
     }
     
-    func updatePortfolio(cryptoID: String, amount: Float) {
+    func updateAssets(cryptoID: String, amount: Float) {
         if let entity = portfolio.first(where: { $0.cryptoID == cryptoID }) {
             if amount > 0 {
-                update(entity: entity, amount: amount)
+                updateAsset(entity: entity, amount: amount)
             } else {
-                delete(entity: entity)
+                deleteAsset(entity: entity)
             }
         } else {
-            add(cryptoID: cryptoID, amount: amount)
+            addCoinToAssets(cryptoID: cryptoID, amount: amount)
         }
     }
     
@@ -49,7 +48,7 @@ class CoinCoreDataService : ObservableObject {
         return amount
     }
     
-    private func getPortfolio() {
+    private func getAssets() {
         let request = NSFetchRequest<Asset>(entityName: entityName)
         do {
             portfolio = try container.viewContext.fetch(request)
@@ -58,25 +57,25 @@ class CoinCoreDataService : ObservableObject {
         }
     }
     
-    private func add(cryptoID: String, amount: Float) {
+    private func addCoinToAssets(cryptoID: String, amount: Float) {
         let entity = Asset(context: container.viewContext)
         entity.cryptoID = cryptoID
         entity.amount = amount
         applyChanges()
     }
     
-    private func update(entity: Asset, amount: Float) {
+    private func updateAsset(entity: Asset, amount: Float) {
         entity.amount = amount
         applyChanges()
     }
     
-    private func delete(entity: Asset) {
+    private func deleteAsset(entity: Asset) {
         container.viewContext.delete(entity)
         applyChanges()
     }
     
     
-    private func save() {
+    private func saveAsset() {
         do {
             try container.viewContext.save()
         } catch let error {
@@ -85,7 +84,7 @@ class CoinCoreDataService : ObservableObject {
     }
     
     private func applyChanges() {
-        save()
-        getPortfolio()
+        saveAsset()
+        getAssets()
     }
 }
