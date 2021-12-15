@@ -74,7 +74,6 @@ struct CryptoDetailView: View {
                             .frame(height: 50)
                     }
                     
-                    
                     Spacer()
                 }
             }

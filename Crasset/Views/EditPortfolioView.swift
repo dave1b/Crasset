@@ -60,7 +60,6 @@ struct EditPortfolioView: View {
                 .font(.headline)
                 
             }
-            .background(Color(#colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)))
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()

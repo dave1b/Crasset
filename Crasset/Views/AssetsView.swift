@@ -44,7 +44,7 @@ struct AssetsView: View {
                             VStack {
                                 HStack {
                                     Spacer()
-                                Text("Amount: " + String(format: "%.2f", crypto.amount))
+                                    Text("Amount: " + String(format: "%.2f", crypto.amount))
                                 }
                                 HStack {
                                     Text(crypto.cryptoID ?? "")
@@ -93,7 +93,6 @@ struct AssetsView: View {
             indexOfTappedSlice = -1
             await charDataObj.updateCoreData(service: service)
         }
-
     }
     
 }

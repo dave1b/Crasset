@@ -22,49 +22,29 @@ struct CalculatorView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .center){
-                Spacer()
-                VStack{
-                    CurrencyPicker(pickedCurrency: $pickedCurrency1)
-                        .onChange(of: pickedCurrency1, perform: { value in
-                            Task{
-                                await picker1Changed()
-                            }
-                        }) .padding([.bottom], -10.0)
-                }
-                TextField(
-                    "Currency 1",
-                    text: $amount1, onEditingChanged: { (changed) in
-                        isFocused1 = changed
-                    })
-                    .keyboardType(.numberPad)
-                    .focused($amountIsFocused)
-                    .onChange(of: amount1) { newValue in
-                        if isFocused1 && !picker1Changed  {
-                            Task{
-                                await amount1Changed()
-                            }
-                        }
+            ZStack{
+                Color("BackgroundColor").edgesIgnoringSafeArea(.all)
+                VStack(alignment: .center){
+                    Spacer()
+                    VStack{
+                        CurrencyPicker(pickedCurrency: $pickedCurrency1)
+                            .onChange(of: pickedCurrency1, perform: { value in
+                                Task{
+                                    await picker1Changed()
+                                }
+                            }) .padding([.bottom], -10.0)
                     }
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(10.0)
-                    .padding()
-                
-                Image(systemName: "arrow.up.arrow.down").resizable().frame(width: 40, height: 40).padding(5)
-                
-                VStack{
                     TextField(
-                        "Currency 2",
-                        text: $amount2, onEditingChanged: { (changed) in
-                            isFocused2 = changed
+                        "Currency 1",
+                        text: $amount1, onEditingChanged: { (changed) in
+                            isFocused1 = changed
                         })
                         .keyboardType(.numberPad)
                         .focused($amountIsFocused)
-                        .onChange(of: amount2) { newValue in
-                            if isFocused2 && !picker2Changed {
+                        .onChange(of: amount1) { newValue in
+                            if isFocused1 && !picker1Changed  {
                                 Task{
-                                    await amount2Changed()
+                                    await amount1Changed()
                                 }
                             }
                         }
@@ -72,33 +52,54 @@ struct CalculatorView: View {
                         .background(Color.white)
                         .cornerRadius(10.0)
                         .padding()
-                        .padding([.bottom], -10.0)
                     
-                    CurrencyPicker(pickedCurrency: $pickedCurrency2)
-                        .onChange(of: pickedCurrency2, perform: { value in
-                            if value == pickedCurrency2 {
-                                Task{
-                                    await picker2Changed()
+                    Image(systemName: "arrow.up.arrow.down").resizable().frame(width: 40, height: 40).padding(5)
+                    
+                    VStack{
+                        TextField(
+                            "Currency 2",
+                            text: $amount2, onEditingChanged: { (changed) in
+                                isFocused2 = changed
+                            })
+                            .keyboardType(.numberPad)
+                            .focused($amountIsFocused)
+                            .onChange(of: amount2) { newValue in
+                                if isFocused2 && !picker2Changed {
+                                    Task{
+                                        await amount2Changed()
+                                    }
                                 }
                             }
-                        })
-                }
-                Spacer()
-                
-            }.task {
-                cryptoFiat1 = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1))
-                cryptoFiat2 = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2))
-            }
-            .background(Color(#colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)))
-            .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    Spacer()
-                    Button("Done") {
-                        amountIsFocused = false
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(10.0)
+                            .padding()
+                            .padding([.bottom], -10.0)
+                        
+                        CurrencyPicker(pickedCurrency: $pickedCurrency2)
+                            .onChange(of: pickedCurrency2, perform: { value in
+                                if value == pickedCurrency2 {
+                                    Task{
+                                        await picker2Changed()
+                                    }
+                                }
+                            })
                     }
+                    Spacer()
+                    
+                }.task {
+                    cryptoFiat1 = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency1))
+                    cryptoFiat2 = try? await APICaller.getSingleDetailsCrypto(cryptoID: SupportedCrypto.getCryptoKeyForAPI(key: pickedCurrency2))
                 }
-            }.navigationTitle("Crypto Calculator")
-            
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button("Done") {
+                            amountIsFocused = false
+                        }
+                    }
+                }.navigationTitle("Crypto Calculator")
+            }
         }
     }
     
