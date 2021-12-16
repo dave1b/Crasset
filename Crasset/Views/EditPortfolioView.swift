@@ -104,7 +104,9 @@ struct EditPortfolioView: View {
     }
     
     func saveButtonPressed() {
-        service.updateAssets(cryptoID: selectedCoin, amount: Float(quantityText)!)
+        if(quantityText != "") {
+            service.updateAssets(cryptoID: selectedCoin, amount: Float(quantityText)!)
+        }
     }
 }
 

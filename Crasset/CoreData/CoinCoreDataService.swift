@@ -33,7 +33,9 @@ class CoinCoreDataService : ObservableObject {
                 deleteAsset(entity: entity)
             }
         } else {
-            addCoinToAssets(cryptoID: cryptoID, amount: amount)
+            if amount > 0 {
+                addCoinToAssets(cryptoID: cryptoID, amount: amount)
+            }
         }
     }
     
