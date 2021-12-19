@@ -35,9 +35,7 @@ struct CryptoDetailView: View {
     var body: some View {
         
         ScrollView() {
-            ZStack{
-                Color("BackgroundColor")
-                
+            VStack{
                 VStack(alignment: .leading, spacing: 5.0) {
                     AsyncImage(url: URL(string: cryptoImage)){ image in
                         image.resizable()
@@ -86,7 +84,6 @@ struct CryptoDetailView: View {
             .padding([.leading, .trailing], 10.0)
             .navigationTitle("\(capitalised) (\(cryptoSymbol))")
         }
-        
     }
 }
 
